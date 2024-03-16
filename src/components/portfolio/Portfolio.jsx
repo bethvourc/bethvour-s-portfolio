@@ -20,7 +20,7 @@ const data = [
   {
     id: 2,
     image: IMG2,
-    title: "NextJS | TailwindCSS | GraphQL Blog",
+    title: "Virtual Mouse",
     github: "https://github.com/Ade-mir/nextjs-blog",
     demo: "https://musical-puffpuff-ff26f2.netlify.app/",
     brief: "https://github.com/Ade-mir/nextjs-blog/blob/main/README.md",
