@@ -12,51 +12,51 @@ const data = [
     id: 1,
     image: IMG1,
     title: "Grandma's Recipe Box",
-    github: "https://github.com/Ade-mir/MERN-social-media-platform",
-    demo: "https://peaceful-cranachan-56056a.netlify.app/",
+    github: "https://github.com/The-BrAVo-Team/RecipeBox",
+    demo: "https://recipebox-enogflugcq-uc.a.run.app", 
     brief:
-      "https://www.canva.com/design/DAFapZZx0GI/205p6bLMxmlp8Z4OjkvcMw/view?utm_content=DAFapZZx0GI&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu",
+      "https://github.com/The-BrAVo-Team/RecipeBox/blob/main/README.md",
   },
   {
     id: 2,
     image: IMG2,
     title: "Virtual Mouse",
-    github: "https://github.com/Ade-mir/nextjs-blog",
-    demo: "https://musical-puffpuff-ff26f2.netlify.app/",
-    brief: "https://github.com/Ade-mir/nextjs-blog/blob/main/README.md",
+    github: "https://github.com/bethvourc/virtual_mouse",
+    demo: "https://sites.google.com/view/beth-demo/home", // temp demo link
+    brief: "https://github.com/bethvourc/virtual_mouse/blob/main/README.md",
   },
   {
     id: 3,
     image: IMG3,
-    title: "JavaScript | HTML | CSS Calculator",
-    github: "https://github.com/Ade-mir/javascript-calculator",
-    demo: "https://fabulous-otter-35c137.netlify.app/",
+    title: "Password Manager",
+    github: "https://github.com/bethvourc/password_manager",
+    demo: "https://sites.google.com/view/beth-demo/home", // temp demo link
     brief:
-      "https://github.com/Ade-mir/javascript-calculator/blob/main/README.md",
+      "https://github.com/bethvourc/password_manager", // TODO: Update link when README is added to repo
   },
   {
     id: 4,
     image: IMG4,
-    title: "React Brochure Site",
-    github: "https://github.com/Ade-mir/brochure-site",
-    demo: "https://deluxe-gumption-ef08f4.netlify.app/",
-    brief: "https://github.com/Ade-mir/brochure-site/blob/main/README.md",
+    title: "Portfolio Manager",
+    github: "https://github.com/bethvourc/portfolio_manager",
+    demo: "https://sites.google.com/view/beth-demo/home", // temp demo link
+    brief: "https://github.com/bethvourc/portfolio_manager", // TODO: Update link when README is added to repo
   },
   {
     id: 5,
     image: IMG5,
-    title: "JavaScript | HTML | CSS Portfolio",
-    github: "https://github.com/Ade-mir/html-css-js-portfolio-tutorial-2",
-    demo: "https://thriving-dragon-a3fcd9.netlify.app/",
-    brief: "https://youtu.be/ldwlOzRvYOU",
+    title: "Retro Ralley",
+    github: "https://gitlab.com/tw-group-02/techwise_project1",
+    demo: "https://sites.google.com/view/beth-demo/home", // temp demo link
+    brief: "https://gitlab.com/tw-group-02/techwise_project1/-/blob/main/docs/presentations.md?ref_type=heads",
   },
   {
     id: 6,
     image: IMG6,
-    title: "JavaScript | HTML | CSS Animation Head",
-    github: "https://github.com/Ade-mir/animated-head-portfolio",
-    demo: "https://animated-head-portfolio.netlify.app/",
-    brief: "https://youtu.be/pcFF_IIpMbc",
+    title: "Beth Chess",
+    github: "https://github.com/bethvourc/beth_chessGame",
+    demo: "https://sites.google.com/view/beth-demo/home", // temp demo
+    brief: "https://github.com/bethvourc/beth_chessGame/blob/master/README.md",
   },
 ];
 

@@ -11,12 +11,12 @@
 }
 
 :root {
-  --color-bg: #f5f5dc; /* Beige Background */
-  --color-bg-variant: #eae0c8; /* Lighter Beige for Variants */
-  --color-primary: #8a795d; /* Dark Beige for Primary Elements */
-  --color-primary-variant: #c2b280; /* Soft Gold for Primary Variants */
-  --color-dark: #504a40; /* Dark Brown for Text */
-  --color-light: rgba(80, 74, 64, 0.6); /* Light Brown for Secondary Text */
+  --color-bg: #1e392a; /* Dark green, similar to the shirt */
+  --color-bg-variant: #3a5f48; /* A lighter shade of the shirt's green */
+  --color-primary: #ffffff; /* White for primary elements */
+  --color-primary-variant: rgba(255, 255, 255, 0.4); /* Slightly transparent white */
+  --color-white: #ffffff; /* Pure white for text and other elements */
+  --color-light: rgba(255, 255, 255, 0.6); /* Light white for less emphasized text */
 
   --transition: all 400ms ease;
 
@@ -37,8 +37,8 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--color-bg);
-  color: var(--color-dark);
+  background: var(--color-bg) url("./assets/bg-texture.png");
+  color: var(--color-white);
   line-height: 1.7;
 }
 
@@ -48,7 +48,6 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  color: var(--color-dark);
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -78,18 +77,17 @@ section > h2 {
 a {
   color: var(--color-primary);
   transition: var(--transition);
+  text-shadow: var(--shadow);
 }
 
 a:hover {
-  color: var(--color-dark);
+  color: var(--color-white);
   background-color: var(--color-primary-variant);
   padding: 0.2rem;
   border-radius: 0.2rem;
 }
 
 .btn {
-  color: var(--color-bg);
-  background: var(--color-primary);
   padding: 0.75rem 1.2rem;
   border-radius: 0.4rem;
   cursor: pointer;
@@ -99,8 +97,8 @@ a:hover {
 }
 
 .btn:hover {
-  background: var(--color-primary-variant);
-  color: var(--color-dark);
+  background: var(--color-white);
+  color: var(--color-bg);
   border-color: transparent;
 }
 
