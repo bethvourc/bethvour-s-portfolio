@@ -83,7 +83,7 @@ const Portfolio = () => {
               </div>
               <div className="portfolio__item-cta">
                 <a href={demo} className="btn btn-primary">
-                  Live Demo (currently inactive)
+                  Live Demo!
                 </a>
               </div>
             </article>
