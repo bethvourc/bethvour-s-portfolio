@@ -1,6 +1,6 @@
 import React from "react";
 import "./portfolio.css";
-import IMG1 from "../../assets/brights-lite.png";
+import IMG1 from "../../assets/GRB.png";
 import IMG2 from "../../assets/blog.png";
 import IMG3 from "../../assets/calculator.png";
 import IMG4 from "../../assets/brochure.png";
