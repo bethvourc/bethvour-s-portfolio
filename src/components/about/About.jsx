@@ -43,29 +43,11 @@ const About = () => {
             </article>
           </div>
           <p>
-          As a versatile Full Stack, Mobile App (iOS & Android), and Game Developer, 
-          I currently contribute to the GUI of FEED, a large-scale Product Information Management system. 
-          Leveraging a broad skill set in Angular, NodeJS, TypeScript, HTML, LESS, Git, IntelliJ, Jira, and Material UI, 
-          I specialize in crafting and maintaining sophisticated user interfaces. These interfaces facilitate seamless communication and 
-          data exchange with APIs while also focusing on delivering exceptional user experiences. My expertise extends to iOS and Android development, evidenced by my hands-on experience with 
-          languages and frameworks such as Swift, Flutter, and Dart. Additionally, my venture into game development has allowed me to apply creative and 
-          technical skills in unique ways, further broadening my development capabilities.
+          I’m a Computer Engineering major at Jackson State University with a solid foundation in software development and data engineering. I’m proficient in Python, C++, Java, SQL, Dart, and more, with experience in frameworks like Argo, Airflow, Kubernetes, React, and Node.js. I’m skilled in tools like Docker, Git, and Google Cloud, and have worked with libraries such as pandas, NumPy, TensorFlow, and OpenCV.
           </p>
           <p>
-          As a Computer Engineering student at Jackson State University with a 4.0 GPA,
-          I am keen on making significant contributions to the technology sector. 
-          My skill set spans Python, Java, Flutter, TensorFlow, among others, enabling 
-          me to understand the nexus between technology and society.
+          My skills span high-performance data simulation, AI development (including gesture recognition with MediaPipe), and blockchain projects. I’m passionate about creating innovative solutions through technology and constantly expanding my expertise.
           </p>
-          <p>
-          Seeking internships and research roles, I'm recognized for my innovative problem-solving, 
-          leadership, and meticulous nature. Aspiring to excel as a Computer Engineer, I engage 
-          in projects like leading a team in the Battery WorkForce Challenge and interning at 
-          Regenstrief Institute Inc. to refine my programming skills and apply my unique insights.
-          My track record in academics, leadership, and community service underscores my commitment to 
-          professional growth and technological innovation.
-          </p>
-          <p></p>
           <a href="#contact" className="btn btn-primary">
             Let's Talk
           </a>
