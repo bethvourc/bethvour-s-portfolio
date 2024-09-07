@@ -43,7 +43,7 @@ const About = () => {
             </article>
           </div>
           <p>
-          I’m a Computer Engineering major at Jackson State University with a solid foundation in software development and data engineering. I’m proficient in Python, C++, Java, SQL, Dart, and more, with experience in frameworks like Argo, Airflow, Kubernetes, React, and Node.js. I’m skilled in tools like Docker, Git, and Google Cloud, and have worked with libraries such as pandas, NumPy, TensorFlow, and OpenCV.
+          I’m a Computer Engineering major with a solid foundation in software development and data engineering. I’m proficient in Python, C++, Java, SQL, Dart, and more, with experience in frameworks like Argo, Airflow, Kubernetes, React, and Node.js. I’m skilled in tools like Docker, Git, and Google Cloud, and have worked with libraries such as pandas, NumPy, TensorFlow, and OpenCV.
           </p>
           <p>
           My skills span high-performance data simulation, AI development (including gesture recognition with MediaPipe), and blockchain projects. I’m passionate about creating innovative solutions through technology and constantly expanding my expertise.

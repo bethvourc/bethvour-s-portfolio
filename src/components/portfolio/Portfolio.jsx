@@ -1,10 +1,10 @@
 import React from "react";
 import "./portfolio.css";
 import IMG1 from "../../assets/recipeBox.webp";
-import IMG2 from "../../assets/blog.png";
-import IMG3 from "../../assets/calculator.png";
-import IMG4 from "../../assets/brochure.png";
-import IMG5 from "../../assets/Portfolio3.png";
+import IMG2 from "../../assets/tradesim.webp";
+import IMG3 from "../../assets/passman.webp";
+import IMG4 from "../../assets/qbot.webp";
+import IMG5 from "../../assets/rrally.webp";
 
 
 const data = [
