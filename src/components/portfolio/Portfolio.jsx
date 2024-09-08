@@ -48,7 +48,7 @@ const data = [
     title: "Retro Ralley",
     github: "https://gitlab.com/tw-group-02/techwise_project1",
     //demo: "https://sites.google.com/view/beth-demo/home", // temp demo link
-    brief: "https://gitlab.com/tw-group-02/techwise_project1/-/blob/main/docs/presentations.md?ref_type=heads",
+    brief: "https://docs.google.com/presentation/d/1u4mio08jlg-XEEtDX4JojeAmyPSzZZlSwyifz3RTxtI/edit#slide=id.g23814320b96_0_173",
   },
 ];
 
