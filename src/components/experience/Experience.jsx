@@ -2,6 +2,7 @@ import React from "react";
 import "./experience.css";
 import { BsPatchCheckFill } from "react-icons/bs";
 
+//remove the experience level on task
 const Experience = () => {
   return (
     <section id="experience">

@@ -32,6 +32,24 @@
   background: var(--color-primary);
 }
 
+.fade-message {
+  text-align: center;
+  font-size: 1rem;
+  color: #fbfbfb;
+  margin-top: 20px;
+  opacity: 1;
+  animation: fadeOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* MEDIA QUERIES (MEDIUM DEVICES) */
 @media screen and (max-width: 1024px) {
   .container.testiomonials__container {

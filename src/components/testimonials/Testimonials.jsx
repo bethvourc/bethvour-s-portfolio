@@ -76,6 +76,7 @@ const Testimonials = () => {
           );
         })}
       </Swiper>
+      <div className="fade-message">Swipe to view others</div>
     </section>
   );
 };
