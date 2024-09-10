@@ -35,7 +35,7 @@
 .fade-message {
   text-align: center;
   font-size: 1rem;
-  color: #fbfbfb;
+  color: #ffffff;
   margin-top: 20px;
   opacity: 1;
   animation: fadeOut 3s ease-in-out forwards;
