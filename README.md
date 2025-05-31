@@ -6,4 +6,4 @@ This project is a personal portfolio website built using React. It showcases the
 
 ### We are live 🤩
 
-A live version of the portfolio can be seen here: [Link to Website](portofliobethvour.netlify.app).
+A live version of the portfolio can be seen here: [Link to Website](https://portofliobethvour.netlify.app/).
