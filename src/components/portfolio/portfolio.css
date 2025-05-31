@@ -1,49 +1,159 @@
+/* ===================== portfolio.css ===================== */
+
+/* ---- Layout ---- */
 .portfolio__container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2.5rem;
 }
 
-.portfolio__item {
+.portfolio__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+/* ---- Filter chips ---- */
+.portfolio__filter-btn {
   background: var(--color-bg-variant);
-  padding: 1.3rem;
-  border-radius: 2rem;
+  border: 1px solid var(--color-primary-variant);
+  padding: 0.45rem 1.25rem;
+  border-radius: 50rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+.portfolio__filter-btn:hover,
+.portfolio__filter-btn.active {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+/* ---- Card ---- */
+.portfolio__item {
+  position: relative;
+  background: var(--color-bg-variant);
+  padding: 2rem 1.6rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
   border: 1px solid transparent;
-  transition: var(--transition);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s;
 }
 
 .portfolio__item:hover {
-  border-color: var(--color-primary-variant);
-  background: transparent;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  border-color: var(--color-primary);
 }
 
+/* Image zoom + gradient */
 .portfolio__item-image {
-  border-radius: 1.5rem;
+  border-radius: 1.25rem;
   overflow: hidden;
+  position: relative;
 }
 
+.portfolio__item-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.65));
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.portfolio__item:hover .portfolio__item-image::before {
+  opacity: 1;
+}
+
+.portfolio__item-image img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.35s;
+}
+
+.portfolio__item:hover .portfolio__item-image img {
+  transform: scale(1.05);
+}
+
+/* Title */
 .portfolio__item > h3 {
-  margin: 1.2rem 0 2rem;
+  margin: 1.25rem 0 0.75rem;
+  font-weight: 600;
+  text-align: center;
 }
 
+/* Tags */
+.portfolio__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.portfolio__tag {
+  background: var(--color-primary-variant);
+  color: var(--color-bg);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* CTA Icons */
 .portfolio__item-cta {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  justify-content: center;
+  gap: 1.25rem;
 }
 
-/* MEDIA QUERIES (MEDIUM DEVICES) */
-@media screen and (max-width: 1024px) {
-  .portfolio__container {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
+.portfolio__item-cta .btn--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border: 1px solid var(--color-primary);
+  padding: 0.55rem;
+  border-radius: 50%;
+  transition: background var(--transition), transform var(--transition);
+  color: var(--color-primary);
 }
 
-/* MEDIA QUERIES (SMALL DEVICES) */
-@media screen and (max-width: 600px) {
-  .portfolio__container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+.portfolio__item-cta .btn--icon:hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  transform: scale(1.1);
+}
+
+/* Tooltip (optional, if you're using tooltips) */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg-variant);
+  color: var(--color-white);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 10;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
 }

@@ -13,6 +13,7 @@
 :root {
   --color-bg: #1e392a; /* Dark green, similar to the shirt */
   --color-bg-variant: #3a5f48; /* A lighter shade of the shirt's green */
+  --color-bg-hover: rgba(2, 68, 13, 0.6);
   --color-primary: #ffffff; /* White for primary elements */
   --color-primary-variant: rgba(255, 255, 255, 0.4); /* Slightly transparent white */
   --color-white: #ffffff; /* Pure white for text and other elements */

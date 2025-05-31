@@ -36,7 +36,7 @@ const About = () => {
               <VscFolderLibrary className="about__icon" />
               <h5>Projects</h5>
               <small>
-                25+ Completed
+                40+ Completed
                 <br />
                 and Counting
               </small>

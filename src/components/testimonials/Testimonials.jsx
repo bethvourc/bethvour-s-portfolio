@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./testimonials.css";
-import AVTR1 from "../../assets/bastian.jpg";
-import AVTR2 from "../../assets/marie.jpg";
-import AVTR3 from "../../assets/ksenia.jpg";
-import AVTR4 from "../../assets/iselin.jpg";
-import AVTR5 from "../../assets/balraj.jpg";
+import AVTR1 from "../../assets/dean.png";
+import AVTR2 from "../../assets/sarah.png";
+import AVTR3 from "../../assets/elisabeth.png";
+import AVTR4 from "../../assets/emily.png";
+import AVTR5 from "../../assets/zaheed.png";
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
