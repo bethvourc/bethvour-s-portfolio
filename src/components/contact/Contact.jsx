@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./contact.css";
-import { MdOutlineEmail } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
@@ -18,55 +18,60 @@ const Contact = () => {
       )
       .then(() => {
         setEmailIsSent(true);
+      })
+      .catch((err) => {
+        console.error("Email send error:", err);
       });
   };
 
   return (
-    <section id="contact">
-      <h5>Get In Touch</h5>
-      <h2>Contact Me</h2>
-      <div className="container contact__container">
+    <section id="contact" className="contact">
+      <h5 className="fade-in delay-1">Get In Touch</h5>
+      <h2 className="fade-in delay-2">Contact Me</h2>
+
+      <div className="container contact__container fade-in delay-3">
+        {/* ───────────────────────────────────────── CONTACT OPTIONS ───────────────────────────────────────── */}
         <div className="contact__options">
-          <article className="contact__option">
-            <MdOutlineEmail className="contact__option-icon" />
-            <h4>Email</h4>
-            <h5>bethvourc@gmail.com</h5>
-            <a href="mailto:bethvourc@gmail.com">Send a message</a>
-          </article>
-          <article className="contact__option">
-            <MdOutlineEmail className="contact__option-icon" />
+          <article className="contact__option fade-in delay-4">
+            <FaLinkedin className="contact__option-icon" />
             <h4>LinkedIn</h4>
-            <h5>Bethvour Chike</h5>
-            <a href="https://www.linkedin.com/in/bethvour-chike/">
-              Send a message
+            <h5>Connect with me</h5>
+            <a
+              href="https://www.linkedin.com/in/bethvour-chike/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Profile
             </a>
           </article>
         </div>
-        {/* END OF CONTACT OPTIONS */}
+        {/* ───────────────────────────────────────────────────────────────────────────────────────────────────── */}
+
         {emailIsSent ? (
-          <h2 id="Contact__sent-message">
-            Your Message was successfully sent!
+          <h2 id="Contact__sent-message" className="fade-in delay-5">
+            Your message has been sent successfully!
           </h2>
         ) : (
-          <form onSubmit={sendEmail}>
+          <form onSubmit={sendEmail} className="fade-in delay-5">
             <input
               type="text"
               name="name"
-              placeholder="Your Full Name"
+              placeholder="Enter Your Full Name"
               required
             />
             <input
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder="Enter Your Email Address"
               required
             />
             <textarea
               name="message"
               rows="7"
-              placeholder="Your Message"
+              placeholder="Enter Your Message Here"
+              required
             ></textarea>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn button.btn-primary">
               Send Message
             </button>
           </form>

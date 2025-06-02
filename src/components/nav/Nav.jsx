@@ -3,7 +3,7 @@ import "./nav.css";
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { BiBook, BiMessageSquareDetail } from "react-icons/bi";
 import { RiServiceLine } from "react-icons/ri";
-import {FaRegCommentDots} from "react-icons/fa";
+import { FaRegCommentDots } from "react-icons/fa";
 
 const Nav = () => {
   const [activeNav, setActiveNav] = useState("#");
@@ -26,9 +26,7 @@ const Nav = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -37,6 +35,7 @@ const Nav = () => {
         href="#"
         onClick={() => setActiveNav("#")}
         className={activeNav === "#" ? "active" : ""}
+        aria-label="Home"
       >
         <AiOutlineHome />
       </a>
@@ -44,6 +43,7 @@ const Nav = () => {
         href="#about"
         onClick={() => setActiveNav("#about")}
         className={activeNav === "#about" ? "active" : ""}
+        aria-label="About"
       >
         <AiOutlineUser />
       </a>
@@ -51,6 +51,7 @@ const Nav = () => {
         href="#experience"
         onClick={() => setActiveNav("#experience")}
         className={activeNav === "#experience" ? "active" : ""}
+        aria-label="Experience"
       >
         <BiBook />
       </a>
@@ -58,13 +59,15 @@ const Nav = () => {
         href="#portfolio"
         onClick={() => setActiveNav("#portfolio")}
         className={activeNav === "#portfolio" ? "active" : ""}
+        aria-label="Portfolio"
       >
         <RiServiceLine />
       </a>
       <a
-      href="#testimonials"
-      onClick={() => setActiveNav('#testimonials')}
-      className={activeNav === "#testimonials" ? "active" : ""}
+        href="#testimonials"
+        onClick={() => setActiveNav("#testimonials")}
+        className={activeNav === "#testimonials" ? "active" : ""}
+        aria-label="Testimonials"
       >
         <FaRegCommentDots />
       </a>
@@ -72,6 +75,7 @@ const Nav = () => {
         href="#contact"
         onClick={() => setActiveNav("#contact")}
         className={activeNav === "#contact" ? "active" : ""}
+        aria-label="Contact"
       >
         <BiMessageSquareDetail />
       </a>

@@ -21,7 +21,7 @@ const data = [
     avatar: AVTR2,
     name: "Sarah",
     review:
-      "We worked closely in a team over a period of four months, and I couldn't have asked for a better partner! Bethvour is extremely dedicated, and always askes the right questions in order to be on the right track.",
+      "We worked closely in a team over a period of four months, and I couldn't have asked for a better partner! Bethvour is extremely dedicated, and always asks the right questions in order to be on the right track.",
   },
   {
     avatar: AVTR3,
@@ -66,7 +66,6 @@ const Testimonials = () => {
       observer.observe(testimonialRef.current);
     }
 
-    // Cleanup observer on unmount
     return () => {
       if (testimonialRef.current) {
         observer.unobserve(testimonialRef.current);
@@ -75,28 +74,31 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section id="testimonials" ref={testimonialRef}>
-      <h5>Reviews</h5>
-      <h2>Testimonials</h2>
+    <section id="testimonials" ref={testimonialRef} className="testimonials">
+      <h5 className="fade-in delay-1">Reviews</h5>
+      <h2 className="fade-in delay-2">Testimonials</h2>
+
       <Swiper
-        className="container testimonials__container"
+        className="container testimonials__container fade-in delay-3"
         modules={[Pagination]}
         spaceBetween={40}
         slidesPerView={1}
         pagination={{ clickable: true }}
       >
         {data.map(({ avatar, name, review }, index) => (
-          <SwiperSlide key={index} className="testimonial">
+          <SwiperSlide key={index} className="testimonial fade-in delay-4">
             <div className="coworker-avatar">
-              <img src={avatar} alt="Coworker" />
+              <img src={avatar} alt={`Avatar of ${name}`} />
             </div>
             <h5 className="coworker__name">{name}</h5>
             <small className="coworker__review">{review}</small>
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* Conditionally render the message */}
-      {showMessage && <div className="fade-message">Swipe to view others</div>}
+
+      {showMessage && (
+        <div className="fade-message fade-in delay-5">Swipe to view others</div>
+      )}
     </section>
   );
 };

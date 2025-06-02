@@ -2,138 +2,67 @@ import React from "react";
 import "./experience.css";
 import { BsPatchCheckFill } from "react-icons/bs";
 
+const frontendSkills = [
+  "Angular",
+  "React",
+  "JavaScript",
+  "TypeScript",
+  "Material UI",
+  "HTML",
+  "CSS",
+  "Tailwind",
+];
+
+const backendSkills = [
+  "Python",
+  "Apache Kafka",
+  "Apache Airflow",
+  "Apache Flink",
+  "Argo",
+  "Kubernetes",
+  "APIs",
+  "Docker",
+  "Node JS",
+  "MongoDB / SQL",
+  "C++",
+];
 
 const Experience = () => {
   return (
-    <section id="experience">
-      <h5>The skills I have</h5>
-      <h2>My experience</h2>
+    <section id="experience" className="experience">
+      <h5 className="fade-in delay-1">The skills I have</h5>
+      <h2 className="fade-in delay-2">My Experience</h2>
+
       <div className="container experience__container">
-        <div className="experience__frontend">
+        {/* FRONTEND SKILLS CARD */}
+        <div className="experience__category fade-in delay-3">
           <h3>Frontend Development Skills</h3>
           <div className="experience__content">
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Angular</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>React</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>JavaScript</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>TypeScript</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Material UI</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>HTML</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>CSS</h4>
-              </div>
-            </article>    
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Tailwind</h4>
-              </div>
-            </article>
+            {frontendSkills.map((skill, idx) => (
+              <article
+                key={skill}
+                className={`experience__details fade-in delay-${4 + idx}`}
+              >
+                <BsPatchCheckFill className="experience__details-icon" />
+                <h4>{skill}</h4>
+              </article>
+            ))}
           </div>
         </div>
 
-        {/* END OF FRONTEND */}
-
-        <div className="experience__backend">
+        {/* BACKEND SKILLS CARD */}
+        <div className="experience__category fade-in delay-12">
           <h3>Backend Development Skills</h3>
           <div className="experience__content">
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Python</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Apache Kafka</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Apache Airflow</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Apache Flink</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Argo</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Kubernetes</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>API's</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Docker</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Node JS</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>Mongo DB / SQL</h4>
-              </div>
-            </article>
-            <article className="experience__details">
-              <BsPatchCheckFill className="experience__details-icon" />
-              <div>
-                <h4>C++</h4>
-              </div>
-            </article>
+            {backendSkills.map((skill, idx) => (
+              <article
+                key={skill}
+                className={`experience__details fade-in delay-${13 + idx}`}
+              >
+                <BsPatchCheckFill className="experience__details-icon" />
+                <h4>{skill}</h4>
+              </article>
+            ))}
           </div>
         </div>
       </div>

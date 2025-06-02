@@ -5,14 +5,15 @@ import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer>
-      {/* eslint-disable-next-line */}
-      <a href="#" className="footer__logo">
+    <footer className="footer fade-in delay-1">
+      <a href="#" className="footer__logo fade-in delay-2">
         Bethvour Chike
       </a>
-      <ul className="permalinks">
+
+      
+      <ul className="permalinks fade-in delay-3">
         <li>
-          {/* eslint-disable-next-line */}
+         
           <a href="#">Home</a>
         </li>
         <li>
@@ -31,16 +32,24 @@ const Footer = () => {
           <a href="#contact">Contact</a>
         </li>
       </ul>
-      <div className="footer__socials">
-        <a href="https://www.linkedin.com/in/bethvour-chike/">
+
+      
+      <div className="footer__socials fade-in delay-4">
+        <a
+          href="https://www.linkedin.com/in/bethvour-chike/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <BsLinkedin />
         </a>
-        <a href="http://github.com/bethvourc">
+        <a href="https://github.com/bethvourc" target="_blank" rel="noopener noreferrer">
           <FaGithub />
         </a>
       </div>
-      <div className="footer__copyright">
-        <small>&copy; Bethvour Chike. All rights reserved</small>
+
+      
+      <div className="footer__copyright fade-in delay-5">
+        <small>&copy; {new Date().getFullYear()} Bethvour Chike. All rights reserved.</small>
       </div>
     </footer>
   );

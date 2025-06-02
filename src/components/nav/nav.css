@@ -1,17 +1,16 @@
 nav {
-  background: rgba(0, 0, 0, 0.3);
-  width: max-content;
-  display: block;
-  padding: 0.7rem 1.7rem;
-  z-index: 2;
   position: fixed;
+  bottom: 2rem;                     
   left: 50%;
-  transform: translate(-50%);
-  bottom: 2rem;
+  transform: translateX(-50%);     
+  z-index: 9999;                    
+
+  background: rgba(0, 0, 0, 0.3);   
+  backdrop-filter: blur(15px);     
+  border-radius: 3rem;             
+  padding: 0.7rem 1.7rem;
   display: flex;
   gap: 0.8rem;
-  border-radius: 3rem;
-  backdrop-filter: blur(15px);
 }
 
 nav a {
@@ -21,13 +20,31 @@ nav a {
   display: flex;
   color: var(--color-light);
   font-size: 1.1rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
   background: rgba(0, 0, 0, 0.3);
+  transform: scale(1.15);
+  outline: none;
 }
 
 nav a.active {
   background: var(--color-primary);
   color: var(--color-bg);
+}
+
+
+@media screen and (max-width: 600px) {
+  nav {
+    width: 90%;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
 }

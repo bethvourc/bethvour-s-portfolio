@@ -11,7 +11,7 @@ import {
   SiAwsamplify,
 } from "react-icons/si";
 
-// A slightly simpler typing hook (no TypeScript annotations)
+
 const useTypingEffect = (words, typeSpeed = 100, pause = 2000) => {
   const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
@@ -53,7 +53,7 @@ const useTypingEffect = (words, typeSpeed = 100, pause = 2000) => {
 };
 
 const Header = () => {
-  // You can swap out these skill-lists as you like
+  
   const typedText = useTypingEffect(
     [
       "AWS • Docker • Kubernetes",
@@ -129,7 +129,7 @@ const Header = () => {
           </svg>
         </a>
 
-        {/* 3) Non-JS Fallback for subtitle */}
+    
         <noscript>
           <h5 className="text-light noscript-fallback">
             Full-Stack Developer & Software Engineer
