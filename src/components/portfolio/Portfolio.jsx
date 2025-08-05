@@ -1,74 +1,104 @@
-// ===================== Portfolio.jsx =====================
 import React, { useState } from "react";
 import "./portfolio.css";
-import { Github, FileText } from "lucide-react"; // ➜  npm i lucide-react
+import { Github, FileText } from "lucide-react";
 
-import IMG1 from "../../assets/recipeBox.webp";
-import IMG2 from "../../assets/tradesim.webp";
-import IMG3 from "../../assets/passman.webp";
-import IMG4 from "../../assets/qbot.webp";
-import IMG5 from "../../assets/rrally.webp";
-
-/**
- * 🔥  Component highlights
- * 1. Category filter chips – smart filtering
- * 2. Tech‑stack tags – quick skill‑scan
- * 3. Modern card design with hover‑lift
- * 4. Centred action icons with tool‑tips (visible pre + post hover)
+/** -----------------------------
+ *  Curated, category-tagged list
+ *  -----------------------------
  */
-
 const projects = [
+  // ── Developer-Tooling ─────────────────────────────────────────
   {
     id: 1,
-    image: IMG1,
-    title: "Grandma's Recipe Box",
-    category: "Full‑Stack",
-    tags: ["React", "Flask", "PostgreSQL"],
-    github: "https://github.com/The-BrAVo-Team/RecipeBox",
-    brief:
-      "https://docs.google.com/presentation/d/1QnLPjJKFByRAJpoSY5kzBvveVECP-uZaaqULwnhfVGE/edit?usp=sharing",
+    title: "b3th – AI-Powered Git Copilot",
+    category: "Developer Tools",
+    tags: ["Python", "GitHub API", "Groq LLM"],
+    github: "https://github.com/bethvourc/b3th",
+    brief: "https://github.com/bethvourc/b3th#readme",
   },
   {
     id: 2,
-    image: IMG2,
-    title: "TradeSim Pro",
-    category: "Data",
-    tags: ["Pandas", "scikit‑learn", "FastAPI"],
-    github: "https://github.com/bethvourc/TradeSim-Pro",
-    brief:
-      "https://www.canva.com/design/DAGQBMdOa4o/ONef3EvnHfSpEHMwR0gHEg/watch?utm_content=DAGQBMdOa4o&utm_campaign=designshare&utm_medium=link&utm_source=editor",
+    title: "CopyFiles CLI – Prompt-Ready Repo Packager",
+    category: "Developer Tools",
+    tags: ["Python", "CLI", "Parsing"],
+    github: "https://github.com/bethvourc/copyfiles-cli",
+    brief: "https://github.com/bethvourc/copyfiles-cli#readme",
   },
   {
     id: 3,
-    image: IMG3,
-    title: "Password Manager",
-    category: "Security",
-    tags: ["Cryptography", "Tkinter", "SQLite"],
-    github: "https://github.com/bethvourc/password_manager",
-    brief: "https://github.com/bethvourc/password_manager/blob/main/README",
+    title: "SnapSolve – AI Math Tutor (npm)",
+    category: "Developer Tools",
+    tags: ["TypeScript", "Vision OCR", "Gemini LLM"],
+    github: "https://github.com/bethvourc/b3th-solve",
+    brief: "https://github.com/bethvourc/b3th-solve#readme",
   },
+
+  // ── Systems / Micro-services ─────────────────────────────────
   {
     id: 4,
-    image: IMG4,
-    title: "QuizBot Gemini",
-    category: "AI / ML",
-    tags: ["LangChain", "OpenAI", "Streamlit"],
-    github: "https://github.com/rukaiah-edhah/QuizBotGemini",
-    brief:
-      "https://github.com/rukaiah-edhah/QuizBotGemini/blob/main/quiz-bot-gemini/README.md",
+    title: "MediaForge – Video-to-MP3 Micro-services",
+    category: "Systems",
+    tags: ["Flask", "RabbitMQ", "Kubernetes"],
+    github: "https://github.com/bethvourc/video-to-mp3",
+    brief: "https://github.com/bethvourc/video-to-mp3#readme",
   },
+
+  // ── Data Engineering ─────────────────────────────────────────
   {
     id: 5,
-    image: IMG5,
-    title: "Retro Ralley",
-    category: "Game Dev",
-    tags: ["Unity", "C#", "Firebase"],
-    github: "https://gitlab.com/tw-group-02/techwise_project1",
-    brief:
-      "https://docs.google.com/presentation/d/1u4mio08jlg-XEEtDX4JojeAmyPSzZZlSwyifz3RTxtI/edit#slide=id.g23814320b96_0_173",
+    title: "FlinkCadence – Streaming CSV Ingestor",
+    category: "Data Engineering",
+    tags: ["PyFlink", "Docker", "SQLite"],
+    github: "https://github.com/bethvourc/cadence-v2",
+    brief: "https://github.com/bethvourc/cadence-v2#readme",
+  },
+  {
+    id: 6,
+    title: "TradeSim Lab – Algo-Trading Sandbox (WIP)",
+    category: "Data Engineering",
+    tags: ["C++", "Python", "Back-testing"],
+    github: "https://github.com/bethvourc/TradeSim-Pro",
+    brief: "https://github.com/bethvourc/TradeSim-Pro#readme",
+  },
+
+  // ── Streaming & Analytics ────────────────────────────────────
+  {
+    id: 7,
+    title: "LiveMarket Streams – Real-Time Stock Analytics",
+    category: "Streaming & Analytics",
+    tags: ["Kafka", "Pandas", "Notebook"],
+    github: "https://github.com/bethvourc/real-time-stock-analysis",
+    brief: "https://github.com/bethvourc/real-time-stock-analysis#readme",
+  },
+
+  // ── AI / ML & Interactive ───────────────────────────────────
+  {
+    id: 8,
+    title: "HandWave – AI Virtual Mouse",
+    category: "AI / ML",
+    tags: ["OpenCV", "MediaPipe", "PyAutoGUI"],
+    github: "https://github.com/bethvourc/ai_virtual_mouse",
+    brief: "https://github.com/bethvourc/ai_virtual_mouse#readme",
+  },
+  {
+    id: 9,
+    title: "FinSight – Stock Prediction Dashboard",
+    category: "AI / ML",
+    tags: ["Streamlit", "LSTM", "Finance"],
+    github: "https://github.com/bethvourc/stock-prediction-dashboard",
+    brief: "https://github.com/bethvourc/stock-prediction-dashboard#readme",
+  },
+  {
+    id: 10,
+    title: "DelaySense – Flight Delay Predictor",
+    category: "AI / ML",
+    tags: ["XGBoost", "Pandas", "EDA"],
+    github: "https://github.com/bethvourc/flight-delay-prediction",
+    brief: "https://github.com/bethvourc/flight-delay-prediction#readme",
   },
 ];
 
+/* dynamic filter list */
 const categories = ["All", ...new Set(projects.map((p) => p.category))];
 
 const Portfolio = () => {
@@ -81,6 +111,7 @@ const Portfolio = () => {
       <h5 className="subtitle">Selected work</h5>
       <h2 className="title">Portfolio</h2>
 
+      {/* filter pills */}
       <div className="portfolio__filters">
         {categories.map((cat) => (
           <button
@@ -95,12 +126,10 @@ const Portfolio = () => {
         ))}
       </div>
 
+      {/* project cards */}
       <div className="container portfolio__container">
-        {filtered.map(({ id, image, title, tags, github, brief }) => (
+        {filtered.map(({ id, title, tags, github, brief }) => (
           <article key={id} className="portfolio__item">
-            <div className="portfolio__item-image">
-              <img src={image} alt={title} />
-            </div>
             <h3>{title}</h3>
 
             <ul className="portfolio__tags">
