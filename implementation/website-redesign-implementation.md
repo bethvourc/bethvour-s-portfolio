@@ -3,8 +3,8 @@
 ## Phase Status
 - [x] Phase 0: Baseline and Safety
 - [x] Phase 1: Information Architecture
-- [ ] Phase 2: Global Visual System
-- [ ] Phase 3: Navigation + Theme Controls
+- [x] Phase 2: Global Visual System
+- [x] Phase 3: Navigation + Theme Controls
 - [ ] Phase 4: Intro Shell (No Hero)
 - [ ] Phase 5: ASCII Animation Integration
 - [ ] Phase 6: Experience Log Redesign
@@ -160,8 +160,8 @@ Rebuild the current portfolio into a minimalist, high-credibility developer site
 ## Execution Checklist (Quick View)
 - [ ] Baseline build passes
 - [x] New section architecture implemented
-- [ ] Global monochrome theming complete
-- [ ] Nav converted to text + theme toggle
+- [x] Global monochrome theming complete
+- [x] Nav converted to text + theme toggle
 - [ ] Intro shell rebuilt (no hero)
 - [ ] Knot ASCII animation integrated
 - [ ] Bloomberg experience timeline implemented
