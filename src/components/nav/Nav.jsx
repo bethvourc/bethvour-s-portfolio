@@ -64,10 +64,10 @@ const Nav = () => {
         <RiServiceLine />
       </a>
       <a
-        href="#testimonials"
-        onClick={() => setActiveNav("#testimonials")}
-        className={activeNav === "#testimonials" ? "active" : ""}
-        aria-label="Testimonials"
+        href="#startup"
+        onClick={() => setActiveNav("#startup")}
+        className={activeNav === "#startup" ? "active" : ""}
+        aria-label="Startup"
       >
         <FaRegCommentDots />
       </a>

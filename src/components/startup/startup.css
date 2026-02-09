@@ -1,0 +1,21 @@
+.startup__container {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 48rem;
+}
+
+.startup__container p {
+  color: var(--color-light);
+  line-height: 1.8;
+}
+
+.startup__container .btn {
+  justify-self: start;
+}
+
+@media screen and (max-width: 600px) {
+  .startup__container .btn {
+    justify-self: stretch;
+    text-align: center;
+  }
+}

@@ -2,7 +2,7 @@
 
 ## Phase Status
 - [x] Phase 0: Baseline and Safety
-- [ ] Phase 1: Information Architecture
+- [x] Phase 1: Information Architecture
 - [ ] Phase 2: Global Visual System
 - [ ] Phase 3: Navigation + Theme Controls
 - [ ] Phase 4: Intro Shell (No Hero)
@@ -159,7 +159,7 @@ Rebuild the current portfolio into a minimalist, high-credibility developer site
 
 ## Execution Checklist (Quick View)
 - [ ] Baseline build passes
-- [ ] New section architecture implemented
+- [x] New section architecture implemented
 - [ ] Global monochrome theming complete
 - [ ] Nav converted to text + theme toggle
 - [ ] Intro shell rebuilt (no hero)
