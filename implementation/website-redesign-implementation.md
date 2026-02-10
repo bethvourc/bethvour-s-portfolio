@@ -10,7 +10,7 @@
 - [x] Phase 6: Experience Log Redesign
 - [x] Phase 7: Portfolio to Project Ledger
 - [x] Phase 8: Startup Spotlight
-- [ ] Phase 9: Contact Simplification
+- [x] Phase 9: Contact Simplification
 - [ ] Phase 10: Quality Passes
 - [ ] Phase 11: Verification + Release
 
@@ -167,6 +167,6 @@ Rebuild the current portfolio into a minimalist, high-credibility developer site
 - [x] Bloomberg experience timeline implemented
 - [x] Portfolio ledger style implemented
 - [x] Blaze Sentry spotlight added
-- [ ] Contact section simplified
+- [x] Contact section simplified
 - [ ] Accessibility/perf/responsive checks done
 - [ ] Production build passes

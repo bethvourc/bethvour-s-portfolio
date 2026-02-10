@@ -1,81 +1,49 @@
-import React, { useState } from "react";
+import React from "react";
 import "./contact.css";
-import { FaLinkedin } from "react-icons/fa";
-import emailjs from "emailjs-com";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Contact = () => {
-  const [emailIsSent, setEmailIsSent] = useState(false);
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_7e8z17g",
-        "template_ws286ap",
-        e.target,
-        "h6QI2ytxsgIhyrzSz"
-      )
-      .then(() => {
-        setEmailIsSent(true);
-      })
-      .catch((err) => {
-        console.error("Email send error:", err);
-      });
-  };
-
   return (
-    <section id="contact" className="contact">
-      <h5 className="fade-in delay-1">Get In Touch</h5>
-      <h2 className="fade-in delay-2">Contact Me</h2>
+    <section id="contact" className="contact contact-panel">
+      <h5>Contact</h5>
+      <h2>Open Channels</h2>
 
-      <div className="container contact__container fade-in delay-3">
-        {/* ───────────────────────────────────────── CONTACT OPTIONS ───────────────────────────────────────── */}
-        <div className="contact__options">
-          <article className="contact__option fade-in delay-4">
-            <FaLinkedin className="contact__option-icon" />
-            <h4>LinkedIn</h4>
-            <h5>Connect with me</h5>
+      <div className="container contact-panel__container">
+        <p className="contact-panel__intro">
+          Best way to reach me is via direct email. Social links are active for
+          project updates and collaboration.
+        </p>
+
+        <ul className="contact-panel__list">
+          <li className="contact-panel__item">
+            <span className="contact-panel__label">email</span>
+            <a href="mailto:bethvourchike@gmail.com">bethvourchike@gmail.com</a>
+          </li>
+          <li className="contact-panel__item">
+            <span className="contact-panel__label">linkedin</span>
             <a
               href="https://www.linkedin.com/in/bethvour-chike/"
               target="_blank"
               rel="noopener noreferrer"
+              className="contact-panel__icon-link"
             >
-              Visit Profile
+              <FaLinkedin aria-hidden="true" />
+              <span>@bethvour-chike</span>
             </a>
-          </article>
-        </div>
-        {/* ───────────────────────────────────────────────────────────────────────────────────────────────────── */}
-
-        {emailIsSent ? (
-          <h2 id="Contact__sent-message" className="fade-in delay-5">
-            Your message has been sent successfully!
-          </h2>
-        ) : (
-          <form onSubmit={sendEmail} className="fade-in delay-5">
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter Your Full Name"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter Your Email Address"
-              required
-            />
-            <textarea
-              name="message"
-              rows="7"
-              placeholder="Enter Your Message Here"
-              required
-            ></textarea>
-            <button type="submit" className="btn button.btn-primary">
-              Send Message
-            </button>
-          </form>
-        )}
+          </li>
+          <li className="contact-panel__item">
+            <span className="contact-panel__label">github</span>
+            <a
+              href="https://github.com/bethvourc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-panel__icon-link"
+            >
+              <FaGithub aria-hidden="true" />
+              <span>@bethvourc</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   );
