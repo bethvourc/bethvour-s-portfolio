@@ -1,50 +1,135 @@
-nav {
+.command-nav {
   position: fixed;
-  bottom: 2rem;                     
+  top: 1rem;
   left: 50%;
-  transform: translateX(-50%);     
-  z-index: 9999;                    
-
-  background: rgba(0, 0, 0, 0.3);   
-  backdrop-filter: blur(15px);     
-  border-radius: 3rem;             
-  padding: 0.7rem 1.7rem;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: min(94vw, 66rem);
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(12px);
   display: flex;
-  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
 }
 
-nav a {
+[data-theme="light"] .command-nav {
+  background: rgba(246, 246, 246, 0.9);
+}
+
+.command-nav__links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.command-nav__links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.62rem;
+  border: 1px solid transparent;
+  border-radius: 0.12rem;
   background: transparent;
-  padding: 0.8rem;
-  border-radius: 50%;
-  display: flex;
-  color: var(--color-light);
-  font-size: 1.1rem;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
-nav a:hover,
-nav a:focus {
-  background: rgba(0, 0, 0, 0.3);
-  transform: scale(1.15);
-  outline: none;
+.command-nav__links a:hover,
+.command-nav__links a:focus-visible {
+  color: var(--fg);
+  border-color: var(--line);
+  background: var(--color-bg-hover);
 }
 
-nav a.active {
-  background: var(--color-primary);
-  color: var(--color-bg);
+.command-nav__links a.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
 }
 
+.command-nav__theme {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 0.12rem;
+  overflow: hidden;
+}
 
-@media screen and (max-width: 600px) {
-  nav {
-    width: 90%;
-    padding: 0.5rem 1rem;
+.command-nav__theme button {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.42rem 0.62rem;
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.command-nav__theme button + button {
+  border-left: 1px solid var(--line);
+}
+
+.command-nav__theme button:hover,
+.command-nav__theme button:focus-visible {
+  background: var(--color-bg-hover);
+  color: var(--fg);
+}
+
+.command-nav__theme button.is-active {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@media screen and (max-width: 900px) {
+  .command-nav {
+    width: calc(100% - 1rem);
+    flex-direction: column;
+    align-items: stretch;
     gap: 0.5rem;
   }
 
-  nav a {
-    font-size: 1rem;
-    padding: 0.6rem;
+  .command-nav__links {
+    justify-content: center;
+  }
+
+  .command-nav__theme {
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .command-nav {
+    top: 0.6rem;
+  }
+
+  .command-nav__links {
+    justify-content: space-between;
+  }
+
+  .command-nav__links a {
+    flex: 1 1 auto;
+    min-width: 5.2rem;
+    font-size: 0.65rem;
+    text-align: center;
+    padding: 0.38rem 0.45rem;
+  }
+
+  .command-nav__theme {
+    width: 100%;
+  }
+
+  .command-nav__theme button {
+    flex: 1 1 50%;
   }
 }

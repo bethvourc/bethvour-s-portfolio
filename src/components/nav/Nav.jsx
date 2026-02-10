@@ -1,84 +1,113 @@
 import React, { useState, useEffect } from "react";
 import "./nav.css";
-import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
-import { BiBook, BiMessageSquareDetail } from "react-icons/bi";
-import { RiServiceLine } from "react-icons/ri";
-import { FaRegCommentDots } from "react-icons/fa";
+
+const NAV_ITEMS = [
+  { id: "about", label: "about" },
+  { id: "experience", label: "experience" },
+  { id: "portfolio", label: "projects" },
+  { id: "startup", label: "startup" },
+  { id: "contact", label: "contact" },
+];
+
+const THEME_STORAGE_KEY = "theme";
+
+const getInitialTheme = () => {
+  if (typeof window === "undefined") {
+    return "dark";
+  }
+
+  const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+  if (savedTheme === "dark" || savedTheme === "light") {
+    return savedTheme;
+  }
+
+  const prefersLight = window.matchMedia(
+    "(prefers-color-scheme: light)"
+  ).matches;
+  return prefersLight ? "light" : "dark";
+};
 
 const Nav = () => {
-  const [activeNav, setActiveNav] = useState("#");
+  const [activeNav, setActiveNav] = useState("#about");
+  const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
-      let current = "#";
+    document.documentElement.setAttribute("data-theme", theme);
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const updateActiveNav = () => {
+      const sections = NAV_ITEMS.map(({ id }) =>
+        document.getElementById(id)
+      ).filter(Boolean);
+
+      if (!sections.length) {
+        return;
+      }
+
+      const scrollProbe = window.scrollY + window.innerHeight * 0.35;
+      let current = `#${NAV_ITEMS[0].id}`;
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - sectionHeight / 3) {
-          current = `#${section.getAttribute("id")}`;
+        if (scrollProbe >= section.offsetTop) {
+          current = `#${section.id}`;
         }
       });
 
       setActiveNav(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    updateActiveNav();
+    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    window.addEventListener("resize", updateActiveNav);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", updateActiveNav);
+      window.removeEventListener("resize", updateActiveNav);
+    };
   }, []);
 
   return (
-    <nav>
-      <a
-        href="#"
-        onClick={() => setActiveNav("#")}
-        className={activeNav === "#" ? "active" : ""}
-        aria-label="Home"
-      >
-        <AiOutlineHome />
-      </a>
-      <a
-        href="#about"
-        onClick={() => setActiveNav("#about")}
-        className={activeNav === "#about" ? "active" : ""}
-        aria-label="About"
-      >
-        <AiOutlineUser />
-      </a>
-      <a
-        href="#experience"
-        onClick={() => setActiveNav("#experience")}
-        className={activeNav === "#experience" ? "active" : ""}
-        aria-label="Experience"
-      >
-        <BiBook />
-      </a>
-      <a
-        href="#portfolio"
-        onClick={() => setActiveNav("#portfolio")}
-        className={activeNav === "#portfolio" ? "active" : ""}
-        aria-label="Portfolio"
-      >
-        <RiServiceLine />
-      </a>
-      <a
-        href="#testimonials"
-        onClick={() => setActiveNav("#testimonials")}
-        className={activeNav === "#testimonials" ? "active" : ""}
-        aria-label="Testimonials"
-      >
-        <FaRegCommentDots />
-      </a>
-      <a
-        href="#contact"
-        onClick={() => setActiveNav("#contact")}
-        className={activeNav === "#contact" ? "active" : ""}
-        aria-label="Contact"
-      >
-        <BiMessageSquareDetail />
-      </a>
+    <nav className="command-nav" aria-label="Section navigation">
+      <ul className="command-nav__links">
+        {NAV_ITEMS.map((item) => {
+          const itemHash = `#${item.id}`;
+          const isActive = activeNav === itemHash;
+
+          return (
+            <li key={item.id}>
+              <a
+                href={itemHash}
+                onClick={() => setActiveNav(itemHash)}
+                className={isActive ? "active" : ""}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="command-nav__theme" role="group" aria-label="Theme">
+        <button
+          type="button"
+          className={theme === "dark" ? "is-active" : ""}
+          aria-pressed={theme === "dark"}
+          onClick={() => setTheme("dark")}
+        >
+          dark
+        </button>
+        <button
+          type="button"
+          className={theme === "light" ? "is-active" : ""}
+          aria-pressed={theme === "light"}
+          onClick={() => setTheme("light")}
+        >
+          light
+        </button>
+      </div>
     </nav>
   );
 };

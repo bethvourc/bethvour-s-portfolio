@@ -1,126 +1,289 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   margin: 0;
   padding: 0;
-  border: 0;
-  outline: 0;
-  box-sizing: border-box;
   list-style: none;
   text-decoration: none;
 }
 
 :root {
-  --color-bg: #1e392a; /* Dark green, similar to the shirt */
-  --color-bg-variant: #3a5f48; /* A lighter shade of the shirt's green */
-  --color-bg-hover: rgba(2, 68, 13, 0.6);
-  --color-primary: #ffffff; /* White for primary elements */
-  --color-primary-variant: rgba(255, 255, 255, 0.4); /* Slightly transparent white */
-  --color-white: #ffffff; /* Pure white for text and other elements */
-  --color-light: rgba(255, 255, 255, 0.6); /* Light white for less emphasized text */
+  color-scheme: dark;
 
-  --transition: all 400ms ease;
+  /* Core theme tokens */
+  --bg: #000000;
+  --fg: #f2f2f2;
+  --muted: #9a9a9a;
+  --line: #2a2a2a;
+  --accent: #ffffff;
+  --surface: #050505;
+  --surface-strong: #0c0c0c;
+  --focus: #d8d8d8;
 
-  --container-width-lg: 75%;
-  --container-width-md: 86%;
-  --container-width-sm: 90%;
+  /* Layout system */
+  --space-section: clamp(4rem, 7vw, 7rem);
+  --space-stack: clamp(0.9rem, 1.4vw, 1.25rem);
+  --measure: 70ch;
+  --container-max: 72rem;
 
-  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* Motion and effects */
+  --transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  --fx-scanline-opacity: 0.03;
+  --fx-noise-opacity: 0.025;
+
+  /*
+    Backward-compatible aliases used by existing section/component CSS.
+    These keep the app stable while moving to the new token model.
+  */
+  --color-bg: var(--bg);
+  --color-bg-variant: var(--surface-strong);
+  --color-bg-hover: rgba(255, 255, 255, 0.08);
+  --color-primary: var(--accent);
+  --color-primary-variant: rgba(255, 255, 255, 0.24);
+  --color-white: var(--fg);
+  --color-light: var(--muted);
+
+  --container-width-lg: min(92vw, var(--container-max));
+  --container-width-md: min(92vw, var(--container-max));
+  --container-width-sm: min(92vw, var(--container-max));
+}
+
+:root[data-theme="light"],
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f6f6f6;
+  --fg: #141414;
+  --muted: #5a5a5a;
+  --line: #d1d1d1;
+  --accent: #000000;
+  --surface: #ffffff;
+  --surface-strong: #f0f0f0;
+  --focus: #2c2c2c;
+
+  --color-bg-hover: rgba(0, 0, 0, 0.06);
+  --color-primary-variant: rgba(0, 0, 0, 0.14);
+  --fx-scanline-opacity: 0.012;
+  --fx-noise-opacity: 0.01;
+}
+
+[data-texture="off"] {
+  --fx-scanline-opacity: 0;
+  --fx-noise-opacity: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  width: 0;
+  height: 0;
 }
 
 body {
+  position: relative;
+  min-height: 100vh;
   font-family: "Poppins", sans-serif;
-  background: var(--color-bg) url("./assets/bg-texture.png");
-  color: var(--color-white);
-  line-height: 1.7;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, var(--fx-scanline-opacity)) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+body::after {
+  z-index: 0;
+  opacity: var(--fx-noise-opacity);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.8) 1px,
+    transparent 1.2px
+  );
+  background-size: 3px 3px;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
   width: var(--container-width-lg);
-  margin: 0 auto;
+  margin-inline: auto;
 }
 
-h1, h2, h3, h4, h5 {
-  font-weight: 600;
-  margin-bottom: 1rem;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.8rem;
 }
 
-h1 { font-size: 2.8rem; }
+h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+}
 
 section {
-  margin-top: 7rem;
-  padding: 1rem;
-  background: var(--color-bg-variant);
-  box-shadow: var(--shadow);
-  border-radius: 0.5rem;
-}
-
-section > h2, section > h5 {
-  text-align: center;
-  color: var(--color-light);
-}
-
-section > h2 {
-  color: var(--color-primary);
-  margin-bottom: 3rem;
-}
-
-.text-light { color: var(--color-light); }
-
-a {
-  color: var(--color-primary);
-  transition: var(--transition);
-  text-shadow: var(--shadow);
-}
-
-a:hover {
-  color: var(--color-white);
-  background-color: var(--color-primary-variant);
-  padding: 0.2rem;
+  margin-top: var(--space-section);
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 0.2rem;
 }
 
-.btn {
-  padding: 0.75rem 1.2rem;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  border: 1px solid var(--color-primary);
-  transition: var(--transition);
-  box-shadow: var(--shadow);
+section > h2,
+section > h5 {
+  text-align: center;
 }
 
-.btn:hover {
-  background: var(--color-white);
-  color: var(--color-bg);
-  border-color: transparent;
+section > h5 {
+  color: var(--muted);
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+section > h2 {
+  color: var(--fg);
+  margin-bottom: clamp(1.4rem, 2.8vw, 2.2rem);
+}
+
+section :where(p, li, small) {
+  max-width: var(--measure);
+  color: var(--muted);
+}
+
+section :where(p + p, li + li) {
+  margin-top: var(--space-stack);
+}
+
+.text-light {
+  color: var(--muted);
+}
+
+a {
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--fg);
+}
+
+:focus-visible {
+  outline: 1px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.68rem 1.15rem;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: 0.15rem;
+  background: transparent;
+  color: var(--fg);
+  transition: var(--transition);
+  box-shadow: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  border-color: var(--accent);
+  background: var(--color-bg-hover);
 }
 
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-bg);
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: transparent;
+  color: var(--fg);
 }
 
 img {
   display: block;
   width: 100%;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.15rem;
+}
+
+:where(.about__card, .experience__category, .portfolio__item, .contact__option, .testimonial) {
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  border-radius: 0.2rem;
+  box-shadow: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body::before,
+  body::after {
+    opacity: 0;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-  .container { width: var(--container-width-md); }
-  section { margin-top: 6rem; }
+  .container {
+    width: var(--container-width-md);
+  }
+
+  section {
+    margin-top: calc(var(--space-section) - 1rem);
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .container { width: var(--container-width-sm); }
-  section > h2 { margin-bottom: 2rem; }
+  .container {
+    width: var(--container-width-sm);
+  }
+
+  section {
+    padding: 1.1rem;
+  }
+
+  section > h2 {
+    margin-bottom: 1.6rem;
+  }
 }
