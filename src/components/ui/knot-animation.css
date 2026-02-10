@@ -1,0 +1,36 @@
+.knot-animation {
+  width: 100%;
+  min-height: 9rem;
+}
+
+.knot-animation pre {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: pre;
+  color: var(--fg);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: clamp(0.58rem, 1.05vw, 0.73rem);
+  line-height: 1.03;
+}
+
+.knot-animation--color pre {
+  color: hsl(var(--knot-hue, 190) 96% 74%);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+@media screen and (max-width: 900px) {
+  .knot-animation {
+    min-height: 8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .knot-animation {
+    min-height: auto;
+  }
+
+  .knot-animation pre {
+    font-size: 0.55rem;
+  }
+}

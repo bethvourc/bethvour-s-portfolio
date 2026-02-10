@@ -53,15 +53,8 @@
   background: var(--surface);
 }
 
-.intro-shell__ascii pre {
-  margin: 0;
+.intro-shell__ascii .knot-animation {
   width: 100%;
-  overflow: auto;
-  color: var(--fg);
-  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: clamp(0.65rem, 1.25vw, 0.78rem);
-  line-height: 1.2;
-  animation: ascii-breathe 900ms steps(2, end) infinite;
 }
 
 .intro-shell__ascii small {
@@ -70,25 +63,6 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.68rem;
-}
-
-@keyframes ascii-breathe {
-  0%,
-  100% {
-    opacity: 0.9;
-    transform: translateY(0);
-  }
-
-  50% {
-    opacity: 1;
-    transform: translateY(-1px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .intro-shell__ascii pre {
-    animation: none;
-  }
 }
 
 @media screen and (max-width: 900px) {

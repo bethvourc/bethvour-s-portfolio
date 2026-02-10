@@ -1,52 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./about.css";
-
-const ASCII_FRAMES = [
-  String.raw`        .-==-.        
-     .-'  /\  '-.     
-    /   _/  \_   \    
-   |   /  /\  \   |   
-   |  |  /  \  |  |   
-    \  \/_/\_\/  /    
-     '-.______.--'    
-`,
-  String.raw`        .-==-.        
-     .-'  /\  '-.     
-    /   _/  \_   \    
-   |   \  /\  /   |   
-   |    |/  \|    |   
-    \  /_/\_/\   /    
-     '-.______.--'    
-`,
-  String.raw`        .-==-.        
-     .-'  /\  '-.     
-    /   _/  \_   \    
-   |   /  /\  \   |   
-   |   \_/  \_/   |   
-    \   /\  /\   /    
-     '-.______.--'    
-`,
-];
+import KnotAnimation from "../ui/KnotAnimation";
 
 const About = () => {
-  const [frame, setFrame] = useState(0);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) {
-      return undefined;
-    }
-
-    const intervalId = window.setInterval(() => {
-      setFrame((previous) => (previous + 1) % ASCII_FRAMES.length);
-    }, 240);
-
-    return () => window.clearInterval(intervalId);
-  }, []);
-
   return (
     <section id="about" className="about intro-shell">
       <h5>Intro</h5>
@@ -63,7 +19,7 @@ const About = () => {
         </div>
 
         <aside className="intro-shell__ascii" aria-label="Animated ASCII sketch">
-          <pre>{ASCII_FRAMES[frame]}</pre>
+          <KnotAnimation speedA={0.9} speedB={0.55} />
           <small>runtime: online</small>
         </aside>
       </div>
