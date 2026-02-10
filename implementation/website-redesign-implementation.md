@@ -5,13 +5,13 @@
 - [x] Phase 1: Information Architecture
 - [x] Phase 2: Global Visual System
 - [x] Phase 3: Navigation + Theme Controls
-- [ ] Phase 4: Intro Shell (No Hero)
-- [ ] Phase 5: ASCII Animation Integration
-- [ ] Phase 6: Experience Log Redesign
-- [ ] Phase 7: Portfolio to Project Ledger
-- [ ] Phase 8: Startup Spotlight
-- [ ] Phase 9: Contact Simplification
-- [ ] Phase 10: Quality Passes
+- [x] Phase 4: Intro Shell (No Hero)
+- [x] Phase 5: ASCII Animation Integration
+- [x] Phase 6: Experience Log Redesign
+- [x] Phase 7: Portfolio to Project Ledger
+- [x] Phase 8: Startup Spotlight
+- [x] Phase 9: Contact Simplification
+- [x] Phase 10: Quality Passes
 - [ ] Phase 11: Verification + Release
 
 ## Goal
@@ -162,11 +162,11 @@ Rebuild the current portfolio into a minimalist, high-credibility developer site
 - [x] New section architecture implemented
 - [x] Global monochrome theming complete
 - [x] Nav converted to text + theme toggle
-- [ ] Intro shell rebuilt (no hero)
-- [ ] Knot ASCII animation integrated
-- [ ] Bloomberg experience timeline implemented
-- [ ] Portfolio ledger style implemented
-- [ ] Blaze Sentry spotlight added
-- [ ] Contact section simplified
-- [ ] Accessibility/perf/responsive checks done
+- [x] Intro shell rebuilt (no hero)
+- [x] Knot ASCII animation integrated
+- [x] Bloomberg experience timeline implemented
+- [x] Portfolio ledger style implemented
+- [x] Blaze Sentry spotlight added
+- [x] Contact section simplified
+- [x] Accessibility/perf/responsive checks done
 - [ ] Production build passes

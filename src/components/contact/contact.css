@@ -1,296 +1,73 @@
-.contact {
+.contact-panel {
   position: relative;
-
- 
-  padding: 2rem 1rem 6rem;
-
-  
-  background-color: var(--color-bg);
-  overflow: hidden;
 }
 
-.contact::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom right,
-    rgba(13, 47, 27, 0.85),
-    rgba(13, 47, 27, 0.6)
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-
-.contact::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgc3R5bGU9ImZpbGw6I2ZmZmZmZjtvcGFjaXR5OjAuMDI7Ii8+Cjwvc3ZnPgo=");
-  background-repeat: repeat;
-  opacity: 0.02;
-  z-index: 2;
-}
-
-
-.contact .container {
-  position: relative;
-  z-index: 3;
-}
-
-
-.contact h5 {
-  text-align: center;
-  font-size: 1.2rem;
-  color: var(--color-light);
-  margin: 0 0 0.25rem; 
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.contact h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #ffffff;
-  margin: 0 0 1.5rem; 
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-
-.container.contact__container {
+.contact-panel__container {
+  max-width: 52rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: clamp(0.95rem, 2vw, 1.3rem);
   display: grid;
-
- 
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem; 
-
-  width: 100%;
-  max-width: 800px; /* match other sections’ max width */
-  margin: 0 auto;
-
-  opacity: 0;
-  transform: translateY(16px);
+  gap: 0.85rem;
 }
 
-/* Fade-in animation for the container */
-.container.contact__container.fade-in {
-  animation-name: fadeInUp;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-}
-
-/* Medium screens: stack vertically */
-@media screen and (max-width: 1024px) {
-  .container.contact__container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
-/* Small screens: full width */
-@media screen and (max-width: 600px) {
-  .container.contact__container {
-    max-width: 100%;
-    padding-bottom: 1.5rem;
-  }
-}
-
-
-.contact__options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-
-  /* Center the LinkedIn card in its grid cell */
-  justify-self: center;
-}
-
-.contact__option {
-  background: var(--color-bg-variant);
-  padding: 1rem 0.75rem;
-  border-radius: 1rem;
-  text-align: center;
-  border: 1px solid transparent;
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(16px);
-
-  
-  min-width: 220px;
-}
-
-.contact__option:hover {
-  background: transparent;
-  border-color: var(--color-primary-variant);
-}
-
-.contact__option-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-primary);
-}
-
-.contact__option h4 {
-  margin: 0.25rem 0;
-  color: #ffffff;
-  font-size: 1rem;
-}
-
-.contact__option h5 {
+.contact-panel__intro {
   margin: 0;
-  color: var(--color-light);
-  font-size: 0.9rem;
+  max-width: 100%;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
-.contact__option a {
-  margin-top: 0.7rem;
-  display: inline-block;
-  font-size: 0.8rem;
-  color: var(--color-primary);
-  transition: color 0.2s ease;
+.contact-panel__list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.42rem;
 }
 
-.contact__option a:hover,
-.contact__option a:focus {
-  color: #ffffff;
+.contact-panel__item {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  padding: 0.62rem 0.72rem;
+  display: grid;
+  grid-template-columns: minmax(6rem, 0.28fr) minmax(0, 1fr);
+  gap: 0.62rem;
+  align-items: center;
 }
 
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  opacity: 0;
-  transform: translateY(16px);
+.contact-panel__label {
+  color: var(--muted);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-form input,
-form textarea {
-  width: 100%;
-  padding: 1.2rem;
-  border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-  resize: none;
-  font-size: 1rem;
-  font-family: inherit;
+.contact-panel__item a {
+  color: var(--fg);
+  width: fit-content;
 }
 
-form input::placeholder,
-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-style: italic;
+.contact-panel__item a:hover,
+.contact-panel__item a:focus-visible {
+  color: var(--accent);
 }
 
-form input:focus,
-form textarea:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+.contact-panel__icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-
-form button.btn-primary {
-  /* Make it span the entire form width */
-  display: block;
-  width: 100%;
-
-  /* Increase vertical padding so it’s tall like your screenshot */
-  padding: 1rem 0;
-
-  /* Pill-shape: large border-radius */
-  border-radius: 2rem;
-
-  /* Solid white background */
-  background: #ffffff;
-
-  
-  color: var(--color-bg);
-
-  
-  font-size: 1.1rem;
-  font-weight: 600;
-
-  border: none;
-  position: relative;
-  z-index: 3;
-
-
-  margin-top: 1rem;
-
-  /* Smooth hover/active transitions */
-  transition: background 0.3s ease, transform 0.2s ease;
+.contact-panel__icon-link svg {
+  font-size: 0.94rem;
 }
 
-form button.btn-primary:hover,
-form button.btn-primary:focus {
-  
-  background: transparent;
-  color: #ffffff;
-  border: 2px solid var(--color-primary-variant);
-  transform: scale(1.02);
-}
-
-
-#Contact__sent-message {
-  text-align: center;
-  color: #ffffff;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: fadeInUp 0.8s ease-out 1.5s forwards;
-}
-
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation-name: fadeInUp;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-}
-
-/* Staggered delays */
-.delay-1 { animation-delay: 0.3s; } /* h5 */
-.delay-2 { animation-delay: 0.6s; } /* h2 */
-.delay-3 { animation-delay: 0.9s; } /* container */
-.delay-4 { animation-delay: 1.2s; } /* LinkedIn card */
-.delay-5 { animation-delay: 1.5s; } /* form or sent-message */
-
-
-@media screen and (max-width: 600px) {
-  .contact__option {
-    padding: 0.8rem 0.5rem;
-  }
-
-  form input,
-  form textarea {
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-
-  form button.btn-primary {
-    padding: 0.8rem 0;
-    font-size: 1rem;
+@media screen and (max-width: 700px) {
+  .contact-panel__item {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
   }
 }

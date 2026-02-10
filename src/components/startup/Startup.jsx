@@ -4,14 +4,33 @@ import "./startup.css";
 const Startup = () => {
   return (
     <section id="startup" className="startup">
-      <h5 className="fade-in delay-1">Startup Spotlight</h5>
-      <h2 className="fade-in delay-2">Blaze Sentry</h2>
+      <p className="section-kicker">Startup Spotlight</p>
+      <h2>Blaze Sentry</h2>
 
-      <div className="container startup__container fade-in delay-3">
-        <p>
-          Real-time wildfire intelligence platform focused on faster detection,
-          response coordination, and operational visibility.
-        </p>
+      <div className="container startup__container">
+        <ul className="startup__rows">
+          <li className="startup__row">
+            <span className="startup__label">mission</span>
+            <p>
+              Deliver real-time risk intelligence for critical incidents across
+              communities, infrastructure, and emergency operations.
+            </p>
+          </li>
+          <li className="startup__row">
+            <span className="startup__label">architecture</span>
+            <p>
+              Event-driven platform that fuses detection signals, analytics, and
+              operator workflows into a single operational command surface.
+            </p>
+          </li>
+          <li className="startup__row">
+            <span className="startup__label">production intent</span>
+            <p>
+              Built for scalable, operational, real-time deployments with
+              resilient ingestion, observability, and response orchestration.
+            </p>
+          </li>
+        </ul>
 
         <a
           href="https://www.blazesentry.org/"

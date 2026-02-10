@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./nav.css";
 
 const NAV_ITEMS = [
@@ -30,6 +30,13 @@ const getInitialTheme = () => {
 const Nav = () => {
   const [activeNav, setActiveNav] = useState("#about");
   const [theme, setTheme] = useState(getInitialTheme);
+  const activeNavRef = useRef("#about");
+  const rafRef = useRef(0);
+
+  const setActiveNavState = (nextHash) => {
+    activeNavRef.current = nextHash;
+    setActiveNav(nextHash);
+  };
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -55,16 +62,32 @@ const Nav = () => {
         }
       });
 
-      setActiveNav(current);
+      if (current !== activeNavRef.current) {
+        setActiveNavState(current);
+      }
     };
 
-    updateActiveNav();
-    window.addEventListener("scroll", updateActiveNav, { passive: true });
-    window.addEventListener("resize", updateActiveNav);
+    const requestUpdate = () => {
+      if (rafRef.current) {
+        return;
+      }
+
+      rafRef.current = window.requestAnimationFrame(() => {
+        rafRef.current = 0;
+        updateActiveNav();
+      });
+    };
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
 
     return () => {
-      window.removeEventListener("scroll", updateActiveNav);
-      window.removeEventListener("resize", updateActiveNav);
+      if (rafRef.current) {
+        window.cancelAnimationFrame(rafRef.current);
+      }
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
     };
   }, []);
 
@@ -79,7 +102,7 @@ const Nav = () => {
             <li key={item.id}>
               <a
                 href={itemHash}
-                onClick={() => setActiveNav(itemHash)}
+                onClick={() => setActiveNavState(itemHash)}
                 className={isActive ? "active" : ""}
                 aria-current={isActive ? "page" : undefined}
               >
