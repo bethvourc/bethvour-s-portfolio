@@ -5,7 +5,7 @@ const EXPERIENCE_LOG = [
   {
     id: "bloomberg-eng-core",
     track: "software engineer intern @ bloomberg",
-    context: "eng core derivatives data streaming · 2025 · new york, ny",
+    context: "eng core derivatives data streaming · 2025 · san francisco, california",
     headline:
       "Designed and shipped real-time ingestion systems for production market and risk data flows.",
     mlFocus:

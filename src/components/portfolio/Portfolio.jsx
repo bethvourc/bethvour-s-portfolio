@@ -176,7 +176,6 @@ const Portfolio = () => {
           <span>project</span>
           <span>domain</span>
           <span>ml / swe signal</span>
-          <span>links</span>
         </div>
 
         <ul className="portfolio-ledger__rows">
@@ -199,25 +198,6 @@ const Portfolio = () => {
                   <span>swe</span>
                   {project.sweSignal}
                 </p>
-              </div>
-
-              <div className="portfolio-ledger__links">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${project.title} code`}
-                >
-                  code
-                </a>
-                <a
-                  href={project.brief}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${project.title} docs`}
-                >
-                  docs
-                </a>
               </div>
             </li>
           ))}
