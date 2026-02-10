@@ -15,7 +15,10 @@ const PROJECTS = [
     title: "FlinkCadence",
     domain: "Infrastructure",
     group: "infrastructure",
-    capability: "Streaming CSV ingest pipeline with checkpoint-safe job recovery.",
+    mlSignal:
+      "Provides stable feature ingestion and drift-aware stream data for ML workflows.",
+    sweSignal:
+      "Checkpoint-safe streaming pipeline with resilient recovery and operational safeguards.",
     stack: ["PyFlink", "Docker", "SQLite"],
     github: "https://github.com/bethvourc/cadence-v2",
     brief: "https://github.com/bethvourc/cadence-v2#readme",
@@ -25,7 +28,10 @@ const PROJECTS = [
     title: "LiveMarket Streams",
     domain: "Infrastructure",
     group: "infrastructure",
-    capability: "Real-time market analytics stream processing for low-latency signals.",
+    mlSignal:
+      "Enables low-latency signal generation for model features and analytics scoring.",
+    sweSignal:
+      "Real-time stream processing architecture tuned for throughput and service reliability.",
     stack: ["Kafka", "Pandas", "Notebook"],
     github: "https://github.com/bethvourc/real-time-stock-analysis",
     brief: "https://github.com/bethvourc/real-time-stock-analysis#readme",
@@ -35,7 +41,10 @@ const PROJECTS = [
     title: "TradeSim Lab",
     domain: "Infrastructure",
     group: "infrastructure",
-    capability: "Algorithmic trading sandbox for repeatable back-testing workflows.",
+    mlSignal:
+      "Supports strategy modeling and evaluation through reproducible simulation datasets.",
+    sweSignal:
+      "Built as a repeatable back-testing sandbox with deterministic experiment workflows.",
     stack: ["C++", "Python", "Back-testing"],
     github: "https://github.com/bethvourc/TradeSim-Pro",
     brief: "https://github.com/bethvourc/TradeSim-Pro#readme",
@@ -45,7 +54,10 @@ const PROJECTS = [
     title: "MediaForge",
     domain: "Systems",
     group: "systems",
-    capability: "Micro-service media pipeline with queue-backed workload isolation.",
+    mlSignal:
+      "Creates structured media transformation flows usable in downstream ML data preparation.",
+    sweSignal:
+      "Queue-backed micro-service architecture with isolated workers and scalable orchestration.",
     stack: ["Flask", "RabbitMQ", "Kubernetes"],
     github: "https://github.com/bethvourc/video-to-mp3",
     brief: "https://github.com/bethvourc/video-to-mp3#readme",
@@ -55,7 +67,10 @@ const PROJECTS = [
     title: "HandWave",
     domain: "ML",
     group: "ml",
-    capability: "Gesture-driven cursor control using camera vision inference loops.",
+    mlSignal:
+      "Computer vision inference loop for real-time gesture recognition and tracking.",
+    sweSignal:
+      "Integrated camera processing, control events, and runtime performance tuning.",
     stack: ["OpenCV", "MediaPipe", "PyAutoGUI"],
     github: "https://github.com/bethvourc/ai_virtual_mouse",
     brief: "https://github.com/bethvourc/ai_virtual_mouse#readme",
@@ -65,7 +80,10 @@ const PROJECTS = [
     title: "FinSight",
     domain: "ML",
     group: "ml",
-    capability: "Time-series forecasting dashboard for stock trend prediction.",
+    mlSignal:
+      "LSTM-based forecasting workflows for market trend estimation and signal projection.",
+    sweSignal:
+      "Interactive dashboard and data services for consistent model output delivery.",
     stack: ["Streamlit", "LSTM", "Finance"],
     github: "https://github.com/bethvourc/stock-prediction-dashboard",
     brief: "https://github.com/bethvourc/stock-prediction-dashboard#readme",
@@ -75,7 +93,10 @@ const PROJECTS = [
     title: "DelaySense",
     domain: "ML",
     group: "ml",
-    capability: "Supervised model pipeline for pre-flight delay risk scoring.",
+    mlSignal:
+      "Supervised learning pipeline for pre-flight delay risk scoring and feature importance.",
+    sweSignal:
+      "Structured ETL and evaluation flow for reproducible prediction pipeline runs.",
     stack: ["XGBoost", "Pandas", "EDA"],
     github: "https://github.com/bethvourc/flight-delay-prediction",
     brief: "https://github.com/bethvourc/flight-delay-prediction#readme",
@@ -85,7 +106,10 @@ const PROJECTS = [
     title: "b3th",
     domain: "Developer Tools",
     group: "tools",
-    capability: "AI-assisted git workflow copilot for repository operations.",
+    mlSignal:
+      "LLM-assisted prompt and response workflows for codebase-aware automation tasks.",
+    sweSignal:
+      "CLI-driven git workflow tooling with robust repository interaction patterns.",
     stack: ["Python", "GitHub API", "Groq LLM"],
     github: "https://github.com/bethvourc/b3th",
     brief: "https://github.com/bethvourc/b3th#readme",
@@ -95,7 +119,10 @@ const PROJECTS = [
     title: "CopyFiles CLI",
     domain: "Developer Tools",
     group: "tools",
-    capability: "CLI utility for packaging repository context into prompt-ready output.",
+    mlSignal:
+      "Generates clean context payloads that improve LLM prompting and model utility.",
+    sweSignal:
+      "Fast repository parsing and packaging utility with predictable command-line behavior.",
     stack: ["Python", "CLI", "Parsing"],
     github: "https://github.com/bethvourc/copyfiles-cli",
     brief: "https://github.com/bethvourc/copyfiles-cli#readme",
@@ -105,7 +132,10 @@ const PROJECTS = [
     title: "SnapSolve",
     domain: "Developer Tools",
     group: "tools",
-    capability: "OCR-driven math solving package with LLM explanation output.",
+    mlSignal:
+      "Vision OCR + LLM reasoning pipeline for math problem understanding and explanation.",
+    sweSignal:
+      "Published package architecture with input handling and response formatting workflows.",
     stack: ["TypeScript", "Vision OCR", "Gemini LLM"],
     github: "https://github.com/bethvourc/b3th-solve",
     brief: "https://github.com/bethvourc/b3th-solve#readme",
@@ -122,7 +152,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="portfolio-ledger">
       <h5>Project Ledger</h5>
-      <h2>Selected Systems</h2>
+      <h2>ML x SWE Build Log</h2>
 
       <div className="portfolio-ledger__filters" role="tablist" aria-label="Project filters">
         {FILTERS.map((filter) => (
@@ -145,7 +175,7 @@ const Portfolio = () => {
         <div className="portfolio-ledger__header" aria-hidden="true">
           <span>project</span>
           <span>domain</span>
-          <span>capability</span>
+          <span>ml / swe signal</span>
           <span>links</span>
         </div>
 
@@ -160,7 +190,16 @@ const Portfolio = () => {
               </div>
 
               <p className="portfolio-ledger__domain">{project.domain}</p>
-              <p className="portfolio-ledger__capability">{project.capability}</p>
+              <div className="portfolio-ledger__signals">
+                <p>
+                  <span>ml</span>
+                  {project.mlSignal}
+                </p>
+                <p>
+                  <span>swe</span>
+                  {project.sweSignal}
+                </p>
+              </div>
 
               <div className="portfolio-ledger__links">
                 <a

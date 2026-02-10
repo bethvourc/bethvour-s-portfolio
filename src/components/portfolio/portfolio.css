@@ -96,12 +96,28 @@
   text-transform: uppercase;
 }
 
-.portfolio-ledger__capability {
+.portfolio-ledger__signals {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.portfolio-ledger__signals p {
   margin: 0;
   max-width: 100%;
-  color: var(--fg);
-  font-size: 0.86rem;
-  line-height: 1.45;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.44;
+}
+
+.portfolio-ledger__signals span {
+  display: inline-block;
+  min-width: 2.05rem;
+  margin-right: 0.38rem;
+  color: var(--accent);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .portfolio-ledger__links {
@@ -138,7 +154,7 @@
   }
 
   .portfolio-ledger__domain::before,
-  .portfolio-ledger__capability::before {
+  .portfolio-ledger__signals::before {
     margin-right: 0.38rem;
     color: var(--muted);
     font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
@@ -151,7 +167,7 @@
     content: "domain";
   }
 
-  .portfolio-ledger__capability::before {
-    content: "capability";
+  .portfolio-ledger__signals::before {
+    content: "ml/swe";
   }
 }

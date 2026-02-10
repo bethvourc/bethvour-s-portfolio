@@ -3,41 +3,40 @@
 }
 
 .experience-log__container {
-  max-width: 62rem;
+  max-width: 64rem;
 }
 
 .experience-log__list {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.9rem;
+  gap: 0.8rem;
 }
 
 .experience-log__entry {
   display: grid;
-  grid-template-columns: 1.4rem minmax(0, 1fr);
-  gap: 0.85rem;
-  align-items: stretch;
+  grid-template-columns: 1.15rem minmax(0, 1fr);
+  gap: 0.8rem;
 }
 
 .experience-log__rail {
   position: relative;
   display: grid;
   justify-items: center;
-  padding-top: 0.3rem;
+  padding-top: 0.38rem;
 }
 
 .experience-log__dot {
-  width: 0.52rem;
-  height: 0.52rem;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   background: var(--accent);
 }
 
 .experience-log__line {
   position: absolute;
-  top: 1rem;
-  bottom: -1rem;
+  top: 0.95rem;
+  bottom: -0.95rem;
   width: 1px;
   background: var(--line);
 }
@@ -45,85 +44,91 @@
 .experience-log__card {
   border: 1px solid var(--line);
   background: var(--surface-strong);
-  padding: 0.95rem 1rem;
+  padding: 0.9rem 0.95rem;
   display: grid;
-  gap: 0.45rem;
+  gap: 0.5rem;
 }
 
 .experience-log__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  color: var(--muted);
+  gap: 0.55rem;
+  align-items: baseline;
+}
+
+.experience-log__track {
+  color: var(--fg);
   font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.69rem;
+  font-size: 0.71rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.experience-log__card h3 {
-  margin: 0;
-  color: var(--fg);
-  font-size: clamp(1rem, 2vw, 1.14rem);
-  line-height: 1.25;
-}
-
-.experience-log__company {
-  margin: 0;
-  color: var(--accent);
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
+.experience-log__context {
+  color: var(--muted);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.experience-log__summary {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.55;
-}
-
-.experience-log__highlights {
-  margin: 0.15rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 0.38rem;
-}
-
-.experience-log__highlights li {
+.experience-log__headline {
   margin: 0;
   max-width: 100%;
   color: var(--fg);
-  line-height: 1.45;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  line-height: 1.48;
 }
 
-.experience-log__highlights li::before {
-  content: ">";
-  margin-right: 0.42rem;
+.experience-log__focus {
+  margin: 0.1rem 0 0;
+  display: grid;
+  gap: 0.34rem;
+}
+
+.experience-log__focus p {
+  margin: 0;
+  max-width: 100%;
+  color: var(--muted);
+  font-size: 0.83rem;
+  line-height: 1.44;
+}
+
+.experience-log__focus span {
+  display: inline-block;
+  min-width: 2.2rem;
+  margin-right: 0.35rem;
   color: var(--accent);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.experience-log__stack {
-  margin: 0.3rem 0 0;
+.experience-log__skills {
+  margin: 0.15rem 0 0;
   color: var(--muted);
   font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 @media screen and (max-width: 600px) {
   .experience-log__entry {
-    grid-template-columns: 1.1rem minmax(0, 1fr);
-    gap: 0.65rem;
+    grid-template-columns: 0.95rem minmax(0, 1fr);
+    gap: 0.62rem;
   }
 
   .experience-log__card {
-    padding: 0.85rem 0.8rem;
+    padding: 0.78rem 0.72rem;
   }
 
-  .experience-log__highlights li {
-    font-size: 0.84rem;
+  .experience-log__headline {
+    font-size: 0.85rem;
+  }
+
+  .experience-log__focus p {
+    font-size: 0.8rem;
   }
 }
