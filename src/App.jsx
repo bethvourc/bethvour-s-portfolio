@@ -10,12 +10,18 @@ import Footer from "./components/footer/Footer";
 const App = () => {
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <Nav />
-      <Intro />
-      <Experience />
-      <Portfolio />
-      <Startup />
-      <Contact />
+      <main id="main-content">
+        <h1 className="sr-only">Bethvour Chike Portfolio</h1>
+        <Intro />
+        <Experience />
+        <Portfolio />
+        <Startup />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

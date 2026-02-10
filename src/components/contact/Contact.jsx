@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 const Contact = () => {
   return (
     <section id="contact" className="contact contact-panel">
-      <h5>Contact</h5>
+      <p className="section-kicker">Contact</p>
       <h2>Open Channels</h2>
 
       <div className="container contact-panel__container">

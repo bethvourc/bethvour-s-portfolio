@@ -5,7 +5,7 @@ import KnotAnimation from "../ui/KnotAnimation";
 const About = () => {
   return (
     <section id="about" className="about intro-shell">
-      <h5>Intro</h5>
+      <p className="section-kicker">Intro</p>
       <h2>Boot Sequence</h2>
 
       <div className="container intro-shell__container">

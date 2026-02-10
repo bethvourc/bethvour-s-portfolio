@@ -4,7 +4,7 @@ import "./startup.css";
 const Startup = () => {
   return (
     <section id="startup" className="startup">
-      <h5>Startup Spotlight</h5>
+      <p className="section-kicker">Startup Spotlight</p>
       <h2>Blaze Sentry</h2>
 
       <div className="container startup__container">

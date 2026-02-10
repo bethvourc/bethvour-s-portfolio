@@ -31,6 +31,7 @@
   --space-stack: clamp(0.9rem, 1.4vw, 1.25rem);
   --measure: 70ch;
   --container-max: 72rem;
+  --nav-offset: clamp(4.2rem, 9vw, 5.6rem);
 
   /* Motion and effects */
   --transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
@@ -131,6 +132,42 @@ body::after {
   z-index: 1;
 }
 
+main {
+  display: block;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 10001;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transform: translateY(-140%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 .container {
   width: var(--container-width-lg);
   margin-inline: auto;
@@ -153,18 +190,23 @@ h1 {
 
 section {
   margin-top: var(--space-section);
+  scroll-margin-top: calc(var(--nav-offset) + 0.8rem);
   padding: clamp(1.25rem, 2.5vw, 2rem);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 0.2rem;
 }
 
+main > section:first-of-type {
+  margin-top: calc(var(--space-section) + var(--nav-offset));
+}
+
 section > h2,
-section > h5 {
+section > .section-kicker {
   text-align: center;
 }
 
-section > h5 {
+section > .section-kicker {
   color: var(--muted);
   margin-bottom: 0.45rem;
   text-transform: uppercase;
@@ -201,7 +243,7 @@ a:focus-visible {
 }
 
 :focus-visible {
-  outline: 1px solid var(--focus);
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 
@@ -254,6 +296,14 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
   html {
     scroll-behavior: auto;
   }
@@ -277,6 +327,10 @@ img {
 @media screen and (max-width: 600px) {
   .container {
     width: var(--container-width-sm);
+  }
+
+  main > section:first-of-type {
+    margin-top: calc(var(--space-section) + 2.8rem);
   }
 
   section {

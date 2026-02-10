@@ -11,7 +11,7 @@
 - [x] Phase 7: Portfolio to Project Ledger
 - [x] Phase 8: Startup Spotlight
 - [x] Phase 9: Contact Simplification
-- [ ] Phase 10: Quality Passes
+- [x] Phase 10: Quality Passes
 - [ ] Phase 11: Verification + Release
 
 ## Goal
@@ -168,5 +168,5 @@ Rebuild the current portfolio into a minimalist, high-credibility developer site
 - [x] Portfolio ledger style implemented
 - [x] Blaze Sentry spotlight added
 - [x] Contact section simplified
-- [ ] Accessibility/perf/responsive checks done
+- [x] Accessibility/perf/responsive checks done
 - [ ] Production build passes

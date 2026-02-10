@@ -81,7 +81,7 @@ const EXPERIENCE_LOG = [
 const Experience = () => {
   return (
     <section id="experience" className="experience experience-log">
-      <h5>Experience Log</h5>
+      <p className="section-kicker">Experience Log</p>
       <h2>ML x SWE Operator Track</h2>
 
       <div className="container experience-log__container">

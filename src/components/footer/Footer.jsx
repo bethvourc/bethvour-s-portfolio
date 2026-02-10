@@ -5,50 +5,49 @@ import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer fade-in delay-1">
-      <a href="#" className="footer__logo fade-in delay-2">
+    <footer className="footer">
+      <a href="#about" className="footer__logo">
         Bethvour Chike
       </a>
 
-      
-      <ul className="permalinks fade-in delay-3">
+      <ul className="permalinks">
         <li>
-         
-          <a href="#">Home</a>
+          <a href="#about">about</a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="#experience">experience</a>
         </li>
         <li>
-          <a href="#experience">Experience</a>
+          <a href="#portfolio">projects</a>
         </li>
         <li>
-          <a href="#portfolio">Portfolio</a>
+          <a href="#startup">startup</a>
         </li>
         <li>
-          <a href="#startup">Blaze Sentry</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact">contact</a>
         </li>
       </ul>
 
-      
-      <div className="footer__socials fade-in delay-4">
+      <div className="footer__socials">
         <a
           href="https://www.linkedin.com/in/bethvour-chike/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
         >
-          <BsLinkedin />
+          <BsLinkedin aria-hidden="true" />
         </a>
-        <a href="https://github.com/bethvourc" target="_blank" rel="noopener noreferrer">
-          <FaGithub />
+        <a
+          href="https://github.com/bethvourc"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub profile"
+        >
+          <FaGithub aria-hidden="true" />
         </a>
       </div>
 
-      
-      <div className="footer__copyright fade-in delay-5">
+      <div className="footer__copyright">
         <small>&copy; {new Date().getFullYear()} Bethvour Chike. All rights reserved.</small>
       </div>
     </footer>

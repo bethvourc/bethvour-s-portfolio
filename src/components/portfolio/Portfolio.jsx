@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./portfolio.css";
 
 const FILTERS = [
@@ -144,23 +144,25 @@ const PROJECTS = [
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
-  const filteredProjects =
-    activeFilter === "all"
-      ? PROJECTS
-      : PROJECTS.filter((project) => project.group === activeFilter);
+  const filteredProjects = useMemo(
+    () =>
+      activeFilter === "all"
+        ? PROJECTS
+        : PROJECTS.filter((project) => project.group === activeFilter),
+    [activeFilter]
+  );
 
   return (
     <section id="portfolio" className="portfolio-ledger">
-      <h5>Project Ledger</h5>
+      <p className="section-kicker">Project Ledger</p>
       <h2>ML x SWE Build Log</h2>
 
-      <div className="portfolio-ledger__filters" role="tablist" aria-label="Project filters">
+      <div className="portfolio-ledger__filters" role="group" aria-label="Project filters">
         {FILTERS.map((filter) => (
           <button
             key={filter.key}
             type="button"
-            role="tab"
-            aria-selected={activeFilter === filter.key}
+            aria-pressed={activeFilter === filter.key}
             className={`portfolio-ledger__filter${
               activeFilter === filter.key ? " is-active" : ""
             }`}
@@ -178,7 +180,7 @@ const Portfolio = () => {
           <span>ml / swe signal</span>
         </div>
 
-        <ul className="portfolio-ledger__rows">
+        <ul className="portfolio-ledger__rows" id="portfolio-ledger-list">
           {filteredProjects.map((project) => (
             <li key={project.id} className="portfolio-ledger__row">
               <div className="portfolio-ledger__project">
