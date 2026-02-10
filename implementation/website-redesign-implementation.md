@@ -7,8 +7,8 @@
 - [x] Phase 3: Navigation + Theme Controls
 - [x] Phase 4: Intro Shell (No Hero)
 - [x] Phase 5: ASCII Animation Integration
-- [ ] Phase 6: Experience Log Redesign
-- [ ] Phase 7: Portfolio to Project Ledger
+- [x] Phase 6: Experience Log Redesign
+- [x] Phase 7: Portfolio to Project Ledger
 - [ ] Phase 8: Startup Spotlight
 - [ ] Phase 9: Contact Simplification
 - [ ] Phase 10: Quality Passes
@@ -164,8 +164,8 @@ Rebuild the current portfolio into a minimalist, high-credibility developer site
 - [x] Nav converted to text + theme toggle
 - [x] Intro shell rebuilt (no hero)
 - [x] Knot ASCII animation integrated
-- [ ] Bloomberg experience timeline implemented
-- [ ] Portfolio ledger style implemented
+- [x] Bloomberg experience timeline implemented
+- [x] Portfolio ledger style implemented
 - [ ] Blaze Sentry spotlight added
 - [ ] Contact section simplified
 - [ ] Accessibility/perf/responsive checks done

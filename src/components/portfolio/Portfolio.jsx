@@ -1,169 +1,188 @@
 import React, { useState } from "react";
 import "./portfolio.css";
-import { Github, FileText } from "lucide-react";
 
-/** -----------------------------
- *  Curated, category-tagged list
- *  -----------------------------
- */
-const projects = [
-  // ── Developer-Tooling ─────────────────────────────────────────
-  {
-    id: 1,
-    title: "b3th – AI-Powered Git Copilot",
-    category: "Developer Tools",
-    tags: ["Python", "GitHub API", "Groq LLM"],
-    github: "https://github.com/bethvourc/b3th",
-    brief: "https://github.com/bethvourc/b3th#readme",
-  },
-  {
-    id: 2,
-    title: "CopyFiles CLI – Prompt-Ready Repo Packager",
-    category: "Developer Tools",
-    tags: ["Python", "CLI", "Parsing"],
-    github: "https://github.com/bethvourc/copyfiles-cli",
-    brief: "https://github.com/bethvourc/copyfiles-cli#readme",
-  },
-  {
-    id: 3,
-    title: "SnapSolve – AI Math Tutor (npm)",
-    category: "Developer Tools",
-    tags: ["TypeScript", "Vision OCR", "Gemini LLM"],
-    github: "https://github.com/bethvourc/b3th-solve",
-    brief: "https://github.com/bethvourc/b3th-solve#readme",
-  },
+const FILTERS = [
+  { key: "all", label: "all" },
+  { key: "infrastructure", label: "infra" },
+  { key: "ml", label: "ml" },
+  { key: "systems", label: "systems" },
+  { key: "tools", label: "tools" },
+];
 
-  // ── Systems / Micro-services ─────────────────────────────────
+const PROJECTS = [
   {
-    id: 4,
-    title: "MediaForge – Video-to-MP3 Micro-services",
-    category: "Systems",
-    tags: ["Flask", "RabbitMQ", "Kubernetes"],
-    github: "https://github.com/bethvourc/video-to-mp3",
-    brief: "https://github.com/bethvourc/video-to-mp3#readme",
-  },
-
-  // ── Data Engineering ─────────────────────────────────────────
-  {
-    id: 5,
-    title: "FlinkCadence – Streaming CSV Ingestor",
-    category: "Data Engineering",
-    tags: ["PyFlink", "Docker", "SQLite"],
+    id: "flinkcadence",
+    title: "FlinkCadence",
+    domain: "Infrastructure",
+    group: "infrastructure",
+    capability: "Streaming CSV ingest pipeline with checkpoint-safe job recovery.",
+    stack: ["PyFlink", "Docker", "SQLite"],
     github: "https://github.com/bethvourc/cadence-v2",
     brief: "https://github.com/bethvourc/cadence-v2#readme",
   },
   {
-    id: 6,
-    title: "TradeSim Lab – Algo-Trading Sandbox (WIP)",
-    category: "Data Engineering",
-    tags: ["C++", "Python", "Back-testing"],
-    github: "https://github.com/bethvourc/TradeSim-Pro",
-    brief: "https://github.com/bethvourc/TradeSim-Pro#readme",
-  },
-
-  // ── Streaming & Analytics ────────────────────────────────────
-  {
-    id: 7,
-    title: "LiveMarket Streams – Real-Time Stock Analytics",
-    category: "Streaming & Analytics",
-    tags: ["Kafka", "Pandas", "Notebook"],
+    id: "livemarket-streams",
+    title: "LiveMarket Streams",
+    domain: "Infrastructure",
+    group: "infrastructure",
+    capability: "Real-time market analytics stream processing for low-latency signals.",
+    stack: ["Kafka", "Pandas", "Notebook"],
     github: "https://github.com/bethvourc/real-time-stock-analysis",
     brief: "https://github.com/bethvourc/real-time-stock-analysis#readme",
   },
-
-  // ── AI / ML & Interactive ───────────────────────────────────
   {
-    id: 8,
-    title: "HandWave – AI Virtual Mouse",
-    category: "AI / ML",
-    tags: ["OpenCV", "MediaPipe", "PyAutoGUI"],
+    id: "tradesim-lab",
+    title: "TradeSim Lab",
+    domain: "Infrastructure",
+    group: "infrastructure",
+    capability: "Algorithmic trading sandbox for repeatable back-testing workflows.",
+    stack: ["C++", "Python", "Back-testing"],
+    github: "https://github.com/bethvourc/TradeSim-Pro",
+    brief: "https://github.com/bethvourc/TradeSim-Pro#readme",
+  },
+  {
+    id: "mediaforge",
+    title: "MediaForge",
+    domain: "Systems",
+    group: "systems",
+    capability: "Micro-service media pipeline with queue-backed workload isolation.",
+    stack: ["Flask", "RabbitMQ", "Kubernetes"],
+    github: "https://github.com/bethvourc/video-to-mp3",
+    brief: "https://github.com/bethvourc/video-to-mp3#readme",
+  },
+  {
+    id: "handwave",
+    title: "HandWave",
+    domain: "ML",
+    group: "ml",
+    capability: "Gesture-driven cursor control using camera vision inference loops.",
+    stack: ["OpenCV", "MediaPipe", "PyAutoGUI"],
     github: "https://github.com/bethvourc/ai_virtual_mouse",
     brief: "https://github.com/bethvourc/ai_virtual_mouse#readme",
   },
   {
-    id: 9,
-    title: "FinSight – Stock Prediction Dashboard",
-    category: "AI / ML",
-    tags: ["Streamlit", "LSTM", "Finance"],
+    id: "finsight",
+    title: "FinSight",
+    domain: "ML",
+    group: "ml",
+    capability: "Time-series forecasting dashboard for stock trend prediction.",
+    stack: ["Streamlit", "LSTM", "Finance"],
     github: "https://github.com/bethvourc/stock-prediction-dashboard",
     brief: "https://github.com/bethvourc/stock-prediction-dashboard#readme",
   },
   {
-    id: 10,
-    title: "DelaySense – Flight Delay Predictor",
-    category: "AI / ML",
-    tags: ["XGBoost", "Pandas", "EDA"],
+    id: "delaysense",
+    title: "DelaySense",
+    domain: "ML",
+    group: "ml",
+    capability: "Supervised model pipeline for pre-flight delay risk scoring.",
+    stack: ["XGBoost", "Pandas", "EDA"],
     github: "https://github.com/bethvourc/flight-delay-prediction",
     brief: "https://github.com/bethvourc/flight-delay-prediction#readme",
   },
+  {
+    id: "b3th",
+    title: "b3th",
+    domain: "Developer Tools",
+    group: "tools",
+    capability: "AI-assisted git workflow copilot for repository operations.",
+    stack: ["Python", "GitHub API", "Groq LLM"],
+    github: "https://github.com/bethvourc/b3th",
+    brief: "https://github.com/bethvourc/b3th#readme",
+  },
+  {
+    id: "copyfiles-cli",
+    title: "CopyFiles CLI",
+    domain: "Developer Tools",
+    group: "tools",
+    capability: "CLI utility for packaging repository context into prompt-ready output.",
+    stack: ["Python", "CLI", "Parsing"],
+    github: "https://github.com/bethvourc/copyfiles-cli",
+    brief: "https://github.com/bethvourc/copyfiles-cli#readme",
+  },
+  {
+    id: "snapsolve",
+    title: "SnapSolve",
+    domain: "Developer Tools",
+    group: "tools",
+    capability: "OCR-driven math solving package with LLM explanation output.",
+    stack: ["TypeScript", "Vision OCR", "Gemini LLM"],
+    github: "https://github.com/bethvourc/b3th-solve",
+    brief: "https://github.com/bethvourc/b3th-solve#readme",
+  },
 ];
 
-/* dynamic filter list */
-const categories = ["All", ...new Set(projects.map((p) => p.category))];
-
 const Portfolio = () => {
-  const [active, setActive] = useState("All");
-  const filtered =
-    active === "All" ? projects : projects.filter((p) => p.category === active);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const filteredProjects =
+    activeFilter === "all"
+      ? PROJECTS
+      : PROJECTS.filter((project) => project.group === activeFilter);
 
   return (
-    <section id="portfolio">
-      <h5 className="subtitle">Selected work</h5>
-      <h2 className="title">Portfolio</h2>
+    <section id="portfolio" className="portfolio-ledger">
+      <h5>Project Ledger</h5>
+      <h2>Selected Systems</h2>
 
-      {/* filter pills */}
-      <div className="portfolio__filters">
-        {categories.map((cat) => (
+      <div className="portfolio-ledger__filters" role="tablist" aria-label="Project filters">
+        {FILTERS.map((filter) => (
           <button
-            key={cat}
-            onClick={() => setActive(cat)}
-            className={`portfolio__filter-btn${
-              active === cat ? " active" : ""
+            key={filter.key}
+            type="button"
+            role="tab"
+            aria-selected={activeFilter === filter.key}
+            className={`portfolio-ledger__filter${
+              activeFilter === filter.key ? " is-active" : ""
             }`}
+            onClick={() => setActiveFilter(filter.key)}
           >
-            {cat}
+            {filter.label}
           </button>
         ))}
       </div>
 
-      {/* project cards */}
-      <div className="container portfolio__container">
-        {filtered.map(({ id, title, tags, github, brief }) => (
-          <article key={id} className="portfolio__item">
-            <h3>{title}</h3>
+      <div className="container portfolio-ledger__container">
+        <div className="portfolio-ledger__header" aria-hidden="true">
+          <span>project</span>
+          <span>domain</span>
+          <span>capability</span>
+          <span>links</span>
+        </div>
 
-            <ul className="portfolio__tags">
-              {tags.map((tag) => (
-                <li key={tag} className="portfolio__tag">
-                  {tag}
-                </li>
-              ))}
-            </ul>
+        <ul className="portfolio-ledger__rows">
+          {filteredProjects.map((project) => (
+            <li key={project.id} className="portfolio-ledger__row">
+              <div className="portfolio-ledger__project">
+                <h3>{project.title}</h3>
+                <p className="portfolio-ledger__stack">
+                  {project.stack.join(" / ")}
+                </p>
+              </div>
 
-            <div className="portfolio__item-cta">
-              <a
-                href={github}
-                className="btn btn--icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub repository"
-                data-tooltip="GitHub"
-              >
-                <Github size={18} />
-              </a>
-              <a
-                href={brief}
-                className="btn btn--icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Project documentation"
-                data-tooltip="Docs"
-              >
-                <FileText size={18} />
-              </a>
-            </div>
-          </article>
-        ))}
+              <p className="portfolio-ledger__domain">{project.domain}</p>
+              <p className="portfolio-ledger__capability">{project.capability}</p>
+
+              <div className="portfolio-ledger__links">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title} code`}
+                >
+                  code
+                </a>
+                <a
+                  href={project.brief}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title} docs`}
+                >
+                  docs
+                </a>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
