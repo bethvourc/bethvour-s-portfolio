@@ -9,8 +9,12 @@ const Startup = () => {
 
       <div className="container startup__container fade-in delay-3">
         <p>
-          Real-time wildfire intelligence platform focused on faster detection,
-          response coordination, and operational visibility.
+          Real-time risk intelligence platform for critical incidents,
+          infrastructure monitoring, and emergency operations.
+        </p>
+        <p>
+          Built to unify detection signals, response coordination, and
+          operational visibility in one system.
         </p>
 
         <a

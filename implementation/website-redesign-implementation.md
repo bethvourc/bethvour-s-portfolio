@@ -5,7 +5,7 @@
 - [x] Phase 1: Information Architecture
 - [x] Phase 2: Global Visual System
 - [x] Phase 3: Navigation + Theme Controls
-- [ ] Phase 4: Intro Shell (No Hero)
+- [x] Phase 4: Intro Shell (No Hero)
 - [ ] Phase 5: ASCII Animation Integration
 - [ ] Phase 6: Experience Log Redesign
 - [ ] Phase 7: Portfolio to Project Ledger
@@ -162,7 +162,7 @@ Rebuild the current portfolio into a minimalist, high-credibility developer site
 - [x] New section architecture implemented
 - [x] Global monochrome theming complete
 - [x] Nav converted to text + theme toggle
-- [ ] Intro shell rebuilt (no hero)
+- [x] Intro shell rebuilt (no hero)
 - [ ] Knot ASCII animation integrated
 - [ ] Bloomberg experience timeline implemented
 - [ ] Portfolio ledger style implemented
